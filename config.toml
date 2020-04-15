@@ -107,14 +107,6 @@ disableHugoGeneratorInject = false
     name       = "About"
     url        = "about/"
   [[menu.main]]
-    identifier = "experience"
-    name       = "Experience"
-    url        = "experience/"
-  [[menu.main]]
-    identifier = "education"
-    name       = "Education"
-    url        = "education/"
-  [[menu.main]]
-    identifier = "posts"
+    identifier = "projects"
     name       = "Projects"
-    url        = "posts/"
+    url        = "projects/"

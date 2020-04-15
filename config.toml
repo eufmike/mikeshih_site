@@ -21,7 +21,7 @@ PygmentsStyle = "monokai"
   images = [""]
 
   # Directory name of your blog content (default is `content/posts`)
-  contentTypeName = "posts"
+  # contentTypeName = "posts"
 
   # Default theme "light" or "dark"
   defaultTheme = "dark"
@@ -67,3 +67,8 @@ PygmentsStyle = "monokai"
     identifier = "about"
     name       = "About"
     url        = "/about/about"
+  
+  [[menu.main]]
+    identifier = "posts"
+    name       = "Posts"
+    url        = "/posts"

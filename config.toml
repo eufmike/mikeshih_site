@@ -1,11 +1,50 @@
-baseurl = "/"
+baseURL = "/"                                           # Solutions Engineer
 title   = "Mike Shih"
-languageCode = "en-us"
+
+DefaultContentLanguage = "en"
+
 theme = "hello-friend-ng"
 
-PygmentsCodeFences = true
-PygmentsStyle = "monokai"
+pygmentsCodefences = true
+pygmentsUseClasses = true
+rssLimit  = 10  # Maximum number of items in the RSS feed.
+copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License." # This message is only used by the RSS template.
 
+# googleAnalytics = ""
+# disqusShortname = ""
+
+archetypeDir = "archetypes"
+contentDir   = "content"
+dataDir      = "data"
+layoutDir    = "layouts"
+publishDir   = "public"
+
+buildDrafts  = false
+buildFuture  = false
+buildExpored = false
+canonifyURLs = true
+
+enableRobotsTXT = true
+enableGitInfo   = false
+enableEmoji     = true
+enableMissingTranslationPlaceholders = false
+disableRSS     = false
+disableSitemap = false
+disable404     = false
+disableHugoGeneratorInject = false
+
+[permalinks]
+  posts = "/posts/:year/:month/:title/"
+
+[author]
+  name = "Mike Shih"
+
+[blackfriday]
+  hrefTargetBlank = true
+
+[taxonomies]
+  tag      = "tags"
+  category = ""
 
 [params]
   dateform        = "Jan 2, 2006"
@@ -13,34 +52,37 @@ PygmentsStyle = "monokai"
   dateformNum     = "2006-01-02"
   dateformNumTime = "2006-01-02 15:04 -0700"
 
-  # Set disableReadOtherPosts to true in order to hide the links to other posts.
-  disableReadOtherPosts = false
-
   # Metadata mostly used in document's head
-  description = "Mike Shih's blog"
-  keywords = "homepage, blog"
+  description = "Nice theme for homepages and blogs"
+  keywords = ""
   images = [""]
+
+  homeSubtitle = "Data Scientist"
+
+  # Prefix of link to the git commit detail page. GitInfo must be enabled.
+  # gitUrl = ""
+
+  # Integrate Javascript files or stylesheets by adding the url to the external assets or by
+  # linking local files with their path relative to the static folder, e.g. "css/styles.css"
+  customCSS = []
+  customJS  = []
+
+  # Toggle this option need to rebuild SCSS, requires extended version of Hugo
+  justifyContent = false  # Set "text-align: justify" to .content.
 
   # Directory name of your blog content (default is `content/posts`)
   contentTypeName = "posts"
 
   # Default theme "light" or "dark"
   defaultTheme = "dark"
-
-  # Default theme "light" or "dark"
   themeColor = "#252627"
 
-  # Colors for favicons
-  [params.favicon.color]
-    mask = "#252627"
-    msapplication = "#252627"
-    theme = "#252627"
-  
   [params.logo]
-    logoText = "mikeshih"
+    logoText     = "Home"
     logoHomeLink = "/"
 
-  [[params.social]]
+  # Social icons
+    [[params.social]]
     name = "github"
     url  = "https://github.com/eufmike"
 
@@ -50,26 +92,29 @@ PygmentsStyle = "monokai"
 
 [languages]
   [languages.en]
-    title = "Home"
+    subtitle  = "Data Scientist"
     weight    = 1
     copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
 
-    # or
-    #
-    # path = "/img/your-example-logo.svg"
-    # alt = "Your example logo alt text"
+  [languages.fr]
+    subtitle  = "Hello Friend NG Theme"
+    weight    = 2
+    copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
 
-  # And you can even create generic menu
-[menu] 
+[menu]
   [[menu.main]]
     identifier = "about"
     name       = "About"
     url        = "about/"
+  [[menu.main]]
+    identifier = "experience"
+    name       = "Experience"
+    url        = "experience/"
   [[menu.main]]
     identifier = "education"
     name       = "Education"
     url        = "education/"
   [[menu.main]]
     identifier = "posts"
-    name       = "Posts"
-    url        = "/posts"
+    name       = "Projects"
+    url        = "posts/"

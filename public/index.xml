@@ -2,37 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mike Shih</title>
-    <link>/</link>
+    <link>/index.html</link>
     <description>Recent content on Mike Shih</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 14 Apr 2020 14:44:08 -0500</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Point Pattern Analysis (Ripley&#39;s K)</title>
-      <link>/posts/point_patern_analysis/</link>
-      <pubDate>Tue, 14 Apr 2020 14:44:08 -0500</pubDate>
-      
-      <guid>/posts/point_patern_analysis/</guid>
-      <description>As the usage of Airyscan increases, a type of super-resolution microscopy, more and more researchers are trying to take advantage of its resolution, combined with new organelle markers (MitoTracker or LysoTracker), to extract some information from their geographical distribution. While lacking the tool for spatial analysis, Ripley&amp;rsquo;s K function can come in handy in this type of study. It is a standard geostatistical tool that has been widely used in ecology and geography.</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>/about/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/about/about/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;/img/avatar.jpg&#34; width=&#34;400&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;I am Mike Shih, an imaging data scientist, a husband, a father, and a euphonium enthusiast.  I was trained as a neuroscientist, graduated with a Ph.D. in Pharmacology, and resorted to imaging data science and microscopy after my Ph.D. training.&lt;/p&gt;</description>
-    </item>
     
   </channel>
 </rss>

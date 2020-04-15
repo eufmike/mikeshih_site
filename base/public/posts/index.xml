@@ -1,0 +1,24 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Posts on Mike Shih</title>
+        <link>/posts/</link>
+        <description>Recent content in Posts on Mike Shih</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+        <lastBuildDate>Mon, 13 Apr 2020 15:23:09 -0500</lastBuildDate>
+        <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Point Pattern Analysis (Ripley&#39;s K)</title>
+            <link>/posts/point_patern_analysis/</link>
+            <pubDate>Tue, 14 Apr 2020 14:44:08 -0500</pubDate>
+            
+            <guid>/posts/point_patern_analysis/</guid>
+            <description>As the usage of Airyscan increases, a type of super-resolution microscopy, more and more researchers are trying to take advantage of its resolution, combined with new organelle markers (MitoTracker or LysoTracker), to extract some information from their geographical distribution. While lacking the tool for spatial analysis, Ripley&amp;rsquo;s K function can come in handy in this type of study. It is a standard geostatistical tool that has been widely used in ecology and geography.</description>
+            <content type="html"><![CDATA[<p>As the usage of Airyscan increases, a type of super-resolution microscopy, more and more researchers are trying to take advantage of its resolution, combined with new organelle markers (MitoTracker or LysoTracker), to extract some information from their geographical distribution. While lacking the tool for spatial analysis, Ripley&rsquo;s K function can come in handy in this type of study. It is a standard geostatistical tool that has been widely used in ecology and geography. Despite being a stranger to most biologists, Ripley&rsquo;s K function and its derivatives are quite popular for analyzing data collected from Single-Molecule localization Microscopies (SMLM), such as stochastic optical reconstruction microscopy (STORM) or photoactivated localization microscopy (PALM). Interestingly, Ripley&rsquo;s K function was originally developed for Dr. Francis Crick&rsquo;s challenge of measuring cell clustering. It will be nice to see it finds its way home.</p>
+]]></content>
+        </item>
+        
+    </channel>
+</rss>

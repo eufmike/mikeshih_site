@@ -21,7 +21,7 @@ PygmentsStyle = "monokai"
   images = [""]
 
   # Directory name of your blog content (default is `content/posts`)
-  # contentTypeName = "posts"
+  contentTypeName = "posts"
 
   # Default theme "light" or "dark"
   defaultTheme = "dark"
@@ -46,15 +46,12 @@ PygmentsStyle = "monokai"
   [[params.social]]
     name = "email"
     url  = "mailto:m.cc.shih@gmail.com"
-  
-  
 
 [languages]
   [languages.en]
     title = "Mike Shih"
     weight    = 1
     copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
-
 
     # or
     #

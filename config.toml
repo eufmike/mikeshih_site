@@ -1,4 +1,5 @@
 baseurl = "/"
+title   = "Mike Shih"
 languageCode = "en-us"
 theme = "hello-friend-ng"
 
@@ -49,7 +50,7 @@ PygmentsStyle = "monokai"
 
 [languages]
   [languages.en]
-    title = "Mike Shih"
+    title = "Home"
     weight    = 1
     copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
 
@@ -63,8 +64,11 @@ PygmentsStyle = "monokai"
   [[menu.main]]
     identifier = "about"
     name       = "About"
-    url        = "/about/about"
-  
+    url        = "about/"
+  [[menu.main]]
+    identifier = "education"
+    name       = "Education"
+    url        = "education/"
   [[menu.main]]
     identifier = "posts"
     name       = "Posts"

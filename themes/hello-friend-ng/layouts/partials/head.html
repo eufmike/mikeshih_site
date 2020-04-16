@@ -62,3 +62,6 @@
 {{- if templates.Exists "partials/extra-head.html" -}}
     {{ partial "extra-head.html" . }}
 {{- end }}
+
+<!-- MathJax support -->
+{{ partial "mathjax_support.html" . }}

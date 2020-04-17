@@ -2,46 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mike Shih</title>
-    <link>/</link>
+    <link>/index.html</link>
     <description>Recent content on Mike Shih</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 15 Apr 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Density Plot</title>
-      <link>/posts/2020/04/density-plot/</link>
-      <pubDate>Wed, 15 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/2020/04/density-plot/</guid>
-      <description># libraries import matplotlib.pyplot as plt import numpy as np import scipy.stats # create data x = np.random.normal(loc= 0, scale = 0.2, size=400) y = x * 2 + np.random.normal(loc= 0, scale = 0.2, size=400) plt.figure(figsize=(10,10)) plt.scatter(x, y, c = &amp;#39;b&amp;#39;, marker = &amp;#39;.&amp;#39;) plt.xlim(-1, 1) plt.ylim(-1, 1) plt.show() import time # Evaluate a gaussian kde on a regular grid of nbins x nbins over data extents nbins=1000 k = scipy.</description>
-    </item>
-    
-    <item>
-      <title>Point Pattern Analysis (Ripley&#39;s K)</title>
-      <link>/posts/2020/04/point-pattern-analysis-ripleys-k/</link>
-      <pubDate>Tue, 14 Apr 2020 14:44:08 -0500</pubDate>
-      
-      <guid>/posts/2020/04/point-pattern-analysis-ripleys-k/</guid>
-      <description>As the usage of Airyscan increases, a type of super-resolution microscopy, more and more researchers are trying to take advantage of its resolution, combined with new organelle markers (MitoTracker or LysoTracker), to extract some information from their geographical distribution. While lacking the tool for spatial analysis, Ripley&amp;rsquo;s K function can come in handy in this type of study. It is a standard geostatistical tool that has been widely used in ecology and geography.</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/about/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;/img/avatar.jpg&#34; width=&#34;300&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;h2 id=&#34;hi&#34;&gt;Hi&lt;/h2&gt;
-&lt;p&gt;I am &lt;strong&gt;Mike Shih&lt;/strong&gt;, an imaging data scientist, a husband, a father, and a euphonium enthusiast. I am originally from Taiwan and finished my Ph.D. in the United States. I was trained in &lt;em&gt;Neuroscience&lt;/em&gt; and graduated with a Ph.D. in &lt;em&gt;Pharmacology&lt;/em&gt;. I am currently doing imaging data science and live in St. Louis.&lt;/p&gt;</description>
-    </item>
     
   </channel>
 </rss>

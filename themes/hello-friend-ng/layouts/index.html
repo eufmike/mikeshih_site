@@ -14,4 +14,37 @@
             {{- end }}
         </div>
     </main>
+
+    <!-- Start: Add by Mike Shih -->
+    <!-- This section is created to insert 4 latest posts from "Posts" section  -->
+    
+    <main class="posts">
+        {{- if .Content }}
+            <div class="content">{{ .Content }}</div>
+        {{- end }}
+
+        <div class="posts-group">
+            <ul class="posts-list">                    
+                {{- range .Pages }}
+                    {{- range first 4 .Pages }}
+                        {{ if ne .Section "Posts" }} <!-- Conditioned to "Post" section -->
+                        <li class="post-item">
+                            <a href="{{.Permalink}}">
+                                <span class="post-title">{{.Title}}</span>
+                                <span class="post-day">
+                                    {{ if .Site.Params.dateformShort }}
+                                        {{ .Date.Format .Site.Params.dateform }}
+                                    {{ else }}
+                                        {{ .Date.Format "Jan 2"}}
+                                    {{ end }}
+                                </span>
+                            </a>
+                        </li>
+                        {{- end }}
+                    {{- end }}
+                {{- end }}
+            </ul>   
+        </div>
+    </main>
+    <!-- End -->
 {{ end }}

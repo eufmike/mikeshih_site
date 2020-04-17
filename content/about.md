@@ -1,7 +1,7 @@
 ---
 title: "About"
 # date: 2020-04-13T10:16:11-05:00
-draft: true
+draft: false
 ---
 {{< figure src="/img/avatar.jpg" width="300">}}
 

@@ -1,4 +1,21 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Mike Shih</title><link>/posts/</link><description>Recent content in Posts on Mike Shih</description><generator>Hugo -- gohugo.io</generator><copyright>&lt;a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0&lt;/a></copyright><lastBuildDate>Wed, 15 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Density Plot</title><link>/posts/2020/04/density-plot/</link><pubDate>Wed, 15 Apr 2020 00:00:00 +0000</pubDate><guid>/posts/2020/04/density-plot/</guid><description># libraries import matplotlib.pyplot as plt import numpy as np import scipy.stats # create data x = np.random.normal(loc= 0, scale = 0.2, size=400) y = x * 2 + np.random.normal(loc= 0, scale = 0.2, size=400) plt.figure(figsize=(10,10)) plt.scatter(x, y, c = &amp;#39;b&amp;#39;, marker = &amp;#39;.&amp;#39;) plt.xlim(-1, 1) plt.ylim(-1, 1) plt.show() import time # Evaluate a gaussian kde on a regular grid of nbins x nbins over data extents nbins=1000 k = scipy.</description><content type="html"><![CDATA[<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># libraries</span>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Posts on Mike Shih</title>
+        <link>/posts/</link>
+        <description>Recent content in Posts on Mike Shih</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+        <lastBuildDate>Wed, 15 Apr 2020 00:00:00 +0000</lastBuildDate>
+        <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Density Plot</title>
+            <link>/posts/2020/04/density-plot/</link>
+            <pubDate>Wed, 15 Apr 2020 00:00:00 +0000</pubDate>
+            
+            <guid>/posts/2020/04/density-plot/</guid>
+            <description># libraries import matplotlib.pyplot as plt import numpy as np import scipy.stats # create data x = np.random.normal(loc= 0, scale = 0.2, size=400) y = x * 2 + np.random.normal(loc= 0, scale = 0.2, size=400) plt.figure(figsize=(10,10)) plt.scatter(x, y, c = &amp;#39;b&amp;#39;, marker = &amp;#39;.&amp;#39;) plt.xlim(-1, 1) plt.ylim(-1, 1) plt.show() import time # Evaluate a gaussian kde on a regular grid of nbins x nbins over data extents nbins=1000 k = scipy.</description>
+            <content type="html"><![CDATA[<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># libraries</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">scipy.stats</span>
@@ -85,4 +102,169 @@ ModuleNotFoundError                       Traceback (most recent call last)
 
 ModuleNotFoundError: No module named 'seaborn'
 </code></pre>
-]]></content></item></channel></rss>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Point Pattern Analysis (Ripley&#39;s K)</title>
+            <link>/posts/2020/04/point-pattern-analysis-ripleys-k/</link>
+            <pubDate>Tue, 14 Apr 2020 14:44:08 -0500</pubDate>
+            
+            <guid>/posts/2020/04/point-pattern-analysis-ripleys-k/</guid>
+            <description>As the usage of Airyscan increases, a type of super-resolution microscopy, more and more researchers are trying to take advantage of its resolution, combined with new organelle markers (MitoTracker or LysoTracker), to extract some information from their geographical distribution. While lacking the tool for spatial analysis, Ripley&amp;rsquo;s K function can come in handy in this type of study. It is a standard geostatistical tool that has been widely used in ecology and geography.</description>
+            <content type="html"><![CDATA[<p>As the usage of Airyscan increases, a type of super-resolution microscopy, more and more researchers are trying to take advantage of its resolution, combined with new organelle markers (MitoTracker or LysoTracker), to extract some information from their geographical distribution. While lacking the tool for spatial analysis, Ripley&rsquo;s K function can come in handy in this type of study. It is a standard geostatistical tool that has been widely used in ecology and geography. Despite being a stranger to most biologists, Ripley&rsquo;s K function and its derivatives are quite popular for analyzing data collected from Single-Molecule localization Microscopies (SMLM), such as stochastic optical reconstruction microscopy (STORM) or photoactivated localization microscopy (PALM). Interestingly, Ripley&rsquo;s K function was originally developed for Dr. Francis Crick&rsquo;s challenge of measuring cell clustering. It will be nice to see it finds its way home.</p>
+<h1 id="point-patterns-testing-note">Point Patterns: testing note</h1>
+<h6 id="tags-notecodingr-notewuccistorm">tags: note/coding/r, note/wucci/STORM</h6>
+<h2 id="getis--franklins-point-pattern-analysis">Getis &amp; Franklin’s point pattern analysis</h2>
+<p>Second-Order Neighborhood Analysis</p>
+<h3 id="background">Background</h3>
+<ul>
+<li>This note documents materials required for Getis &amp; Franklin’s point pattern analysis. This method has been used in several papers to describe and create density map for STORM dataset.</li>
+<li>The analytic method was originally published in 1987 on <em>Ecology</em>, and later reprinted in the book titled ”<em>Perspectives on Spatial Data Analysis</em>”.</li>
+<li>The incentive of building this method, was to provide a tool for ecologists and geographers, to quantify targets with flexibility in scale.</li>
+<li>It was designed for a remote sensing study of canopy reflectance for a ponderosa pine (<em>Pinus ponderosa</em>) forest.</li>
+<li>People used to call the method Getis &amp; Franklin’s method, but its actual name is “Second-Order Neighborhood Analysis”.</li>
+</ul>
+<h3 id="note">Note</h3>
+<ul>
+<li>“Perhaps blocking, or contiguous quadrat analysis, is the most common method used for examining grain of pattern.”</li>
+</ul>
+<h4 id="contiguous-quadrat-analysis">Contiguous quadrat analysis</h4>
+<p>Quadrat (樣方，方區): A quadrat is a frame, traditionally square, used in ecology and geography to isolate a standard unit of area for study of the distribution of an item over a large area.
+<a href="https://www.omicsonline.org/cmeias-quadrat-maker-a-digital-software-tool-to-optimize-grid-2157-7625.1000136.php?aid=18461">Example for contiguous quadrat analysis</a>
+<img src="https://i.imgur.com/sHvcY6N.png" alt=""></p>
+<h4 id="spectral-analysis">Spectral analysis</h4>
+<p><a href="https://en.wikipedia.org/wiki/Spectral_density_estimation">Spectral density estimation - Wikipedia</a>
+<a href="https://en.wikipedia.org/wiki/Kernel_density_estimation">Kernel density estimation - Wikipedia</a></p>
+<h4 id="the-model">The model</h4>
+<p>$$
+\hat{L}<em>i(d)= \Biggl[A\sum</em>{j=1}^n\frac{K_{ij}}{\pi(n-1)}\Biggr]^\frac{1}{2}
+$$</p>
+<p>This function is an modified function from Ripley&rsquo;s K, and returns  $\hat{L}_i(d)$ for individual points.</p>
+<p><img src="https://i.imgur.com/e3HzTA0.png" alt=""></p>
+<p>By plotting each point with its value in isoline, these are the plot:
+<img src="https://i.imgur.com/uwiD1uP.png" alt=""></p>
+<h3 id="compare-getis-and-franklins-function-with-ripleys-k-function">Compare Getis and Franklin&rsquo;s Function with Ripley&rsquo;s K Function</h3>
+<h4 id="getis-and-franklins-function">Getis and Franklin&rsquo;s Function</h4>
+<p>$$
+\hat{L}<em>i(d)= \Biggl[A\sum</em>{j=1}^n\frac{K_{ij}}{\pi(n-1)}\Biggr]^\frac{1}{2}
+$$</p>
+<p>$K_{ij}$: If for a given neighborhood point j the specified distance d is more than the distance between i and j, then the pair (kij ) counts as 1 (unless the boundary correction is required); otherwise kij counts 0.</p>
+<p>Edge correction:</p>
+<ul>
+<li>if the distance of between $i$ and $j$ is greater than the distance between $i$ and the nearest boundary:</li>
+</ul>
+<p>$$K_{ij} = \biggl[1-\frac{\cos^{-1}(\frac{e_1}{d})}{\pi}\biggr]^{-1}$$</p>
+<ul>
+<li>if the distance of between $i$ and $j$ is greater than the distance to both of two boundaries $(e_1, e_2)$, use:</li>
+</ul>
+<p>$$K_{ij} = \biggl{1-\frac{\cos^{-1}(\frac{e_1}{d}+\cos^{-1}(\frac{e_2}{d})+\frac{\pi}{2} )}{2\pi}\biggr}^{-1}$$</p>
+<h4 id="ripleys-k-function">Ripley&rsquo;s K Function</h4>
+<p>$$
+\hat{K}(d)= \hat{\lambda}^{-1}\sum_{i}\sum_{j\neq1}\frac{\omega(l_i, l_j)I(d_{ij&lt;t})}{N}
+$$</p>
+<p>Edge correction is controlled by $\omega$</p>
+<p>Note: These two functions are similar because $K_{ij}$ and $I(d_{ij&lt;t})$ are  the same.</p>
+<ul>
+<li>
+<p>In Ripley&rsquo;s K funtion, if the first sigma is ignored, it can also return $\hat{K}(d)$ for each spot with doing averaging. $\hat{\lambda}^{-1}$ is the estimated density, so it equals to ${A}/{N}$. When it describes a single spot, $N$ = 1.</p>
+</li>
+<li>
+<p>In G&amp;F&rsquo;s funtion, $\pi$ can be moved outside the sigma because it is a constant.</p>
+</li>
+</ul>
+<p>Which means, when we describe a single spot without edge correction, Getis and Franklin&rsquo;s Function looks like this:
+$$
+\hat{L}<em>i(d)= \Biggl[\frac{A}{\pi}\sum</em>{j=1}^n\frac{K_{ij}}{(n-1)}\Biggr]^\frac{1}{2}
+$$</p>
+<p>Ripley&rsquo;s K Function looks like this:
+$$
+\hat{K}<em>i(d)= A\sum</em>{j\neq1}\frac{I(d_{ij&lt;t})}{N}
+$$</p>
+<p>Since $$\sum_{j=1}^n\frac{1}{(n-1)}$$</p>
+<p>and $$\sum_{j\neq1}\frac{1}{N}$$</p>
+<p>are the same, it is not hard to find that G&amp;F&rsquo;s function is just a type of Ripley&rsquo;s K Function but divided by $\pi$ and sqare rooted, in order to keep the data linear. Getis&rsquo;s method is</p>
+<h3 id="code-in-r">Code in R</h3>
+<p>In R, we can use the <code>localL</code> funtion in <code>spatstat</code> to achive Getis&rsquo;s method. The problem is <code>localL</code> forces to run through the whole dataset. It is less flexible, and took significantly amount of time to run through hundred thousand of points.</p>
+<h3 id="code-in-python">Code in Python</h3>
+<p>Rethink the code I have.</p>
+<pre><code>
+file	time	version
+0	P_ThomasPP_20	0.393422	ripleyk_v2
+1	P_ThomasPP_20	1.751421	ripleyk_v3
+2	P_ThomasPP_20	0.397242	ripleyk_v4
+3	P_ThomasPP_256	891.318586	ripleyk_v4
+4	P_ThomasPP_256	883.690282	ripleyk_v2
+</code></pre><h3 id="reference">Reference</h3>
+<ul>
+<li>
+<p>Williamson, D. J., Owen, D. M., Rossy, J., Magenau, A., Wehrmann, M., Gooding, J. J., &amp; Gaus, K. (2011). Pre-existing clusters of the adaptor Lat do not participate in early T cell signaling events. <em>Nature Immunology</em>, <em>12</em>(7), 655–662. <a href="http://doi.org/10.1038/ni.2049">http://doi.org/10.1038/ni.2049</a>
+<a href="papers3://publication/doi/10.1038/ni.2049">Link to my paper3 database</a></p>
+</li>
+<li>
+<p>Bálint, Š., Lopes, F. B., &amp; Davis, D. M. (2018). A nanoscale reorganization of the IL-15 receptor is triggered by NKG2D in a ligand-dependent manner. <em>Science Signaling</em>, <em>11</em>(525), eaal3606. <a href="http://doi.org/10.1126/scisignal.aal3606">http://doi.org/10.1126/scisignal.aal3606</a>
+<a href="papers3://publication/doi/10.1126/scisignal.aal3606">Link to my paper3 database</a></p>
+</li>
+<li>
+<p>Ripley, B. D. (1977). Modelling spatial patterns (with discussion). JR Statist. Soc. B, 39, 172-212.(1981) Spatial Statistics.
+<a href="papers3://publication/uuid/45A4FFCA-990E-4FEE-B12E-4456C3C3653C">Link to my paper3 database</a></p>
+</li>
+<li>
+<p>Getis, A. (1984). Interaction Modeling Using Second-Order Analysis. Environment and Planning A, 16(2), 173–183. <a href="http://doi.org/10.1068/a160173">http://doi.org/10.1068/a160173</a>
+<a href="papers3://publication/doi/10.1068/a160173">Link to my paper3 database</a></p>
+</li>
+<li>
+<p>Getis, A., Franklin, J. (1987) Second-Order Neighborhood Analysis of Mapped Point Patterns. Ecology 68:473-477. Reprinted with permission of The Ecological Society of America, Washington DC
+<a href="papers3://publication/doi/10.1007/978-3-642-01976-0_7">Link to my paper3 database</a></p>
+</li>
+<li>
+<p>Getis, A., &amp; Franklin, J. (2008). Second-Order Neighborhood Analysis of Mapped Point Patterns. In <em>Perspectives on Spatial Data Analysis</em> (pp. 93–100). Berlin, Heidelberg: Springer Berlin Heidelberg. <a href="http://doi.org/10.1007/978-3-642-01976-0_7">http://doi.org/10.1007/978-3-642-01976-0_7</a>
+<a href="papers3://publication/uuid/D2CC985A-F970-4E38-A220-C5EE00E1B5FA">Link to my paper3 database</a></p>
+</li>
+</ul>
+<h2 id="book--other-resource">Book &amp; Other Resource</h2>
+<p>Books for Spatial statistics</p>
+<ul>
+<li><a href="https://gis.stackexchange.com/questions/48754/learning-spatial-statistics">references - Learning Spatial Statistics? - Geographic Information Systems Stack Exchange</a></li>
+<li>R code: <a href="http://rstudio-pubs-static.s3.amazonaws.com/5292_2b2fae3795a144b2a4b486fd2fc6fc57.html">Point Patterns: Hypothesis Testing</a></li>
+<li>MATLAB tool:  <a href="https://github.com/quokka79/ClusterFields">GitHub - quokka79/ClusterFields: Getis &amp; Franklin Local Point Pattern Analysis for Localisation Microscopy Images</a></li>
+</ul>
+<h2 id="statistical-concepts">Statistical Concepts</h2>
+<h3 id="the-order-statistic">The order statistic</h3>
+<p>不是很容易找到有關定義Order Statistics的資料，無法確定是個慣用法還是有明確的出處。基本上1st跟2nd order statistics指的是first and second moments，包含arithmetic mean（算術平均數）跟variance（變異數）。
+<a href="http://www1.maths.leeds.ac.uk/applied/news.dir/issue2/hos_intro.html">Introducing Higher Order Statistics (HOS)</a></p>
+<p>moment <a href="https://zh.wikipedia.org/wiki/%E7%9F%A9_(%E6%95%B8%E5%AD%B8)">矩</a>
+<a href="https://en.wikipedia.org/wiki/Moment_(mathematics)">Moment (mathematics) - Wikipedia</a></p>
+<p>Statistical dispersion（離散程度）</p>
+<h2 id="edge-correction">Edge Correction</h2>
+<p>orrection=c(&ldquo;border&rdquo;, &ldquo;isotropic&rdquo;, &ldquo;Ripley&rdquo;, &ldquo;translate&rdquo;)</p>
+<p>Ripley:</p>
+<p>border:</p>
+<h3 id="interpolation">Interpolation</h3>
+<p>matlab: v4
+biharmonic spline interpolation
+<a href="https://www.mathworks.com/help/curvefit/interpolation-methods.html">https://www.mathworks.com/help/curvefit/interpolation-methods.html</a>
+<a href="http://www.fon.hum.uva.nl/praat/manual/biharmonic_spline_interpolation.html">http://www.fon.hum.uva.nl/praat/manual/biharmonic_spline_interpolation.html</a>
+Someone suggest this method for python:
+<a href="https://mail.python.org/pipermail/scipy-dev/2014-July/019952.html">https://mail.python.org/pipermail/scipy-dev/2014-July/019952.html</a>
+<a href="https://scipy.github.io/old-wiki/pages/Cookbook/RadialBasisFunctions.html">https://scipy.github.io/old-wiki/pages/Cookbook/RadialBasisFunctions.html</a></p>
+<h2 id="ripleys-k-function-and-derivative">Ripley&rsquo;s K Function and derivative</h2>
+<ol>
+<li>Ripley&rsquo;s K-function
+$$
+\hat{K}(r)= \hat{\lambda}^{-1}\sum_{i}\sum_{j\neq1}\frac{\omega(l_i, l_j)I(d_{ij&lt;r})}{N}
+$$</li>
+<li>L-function: a normalization proposed by Besag
+$$
+\hat{L}(r)=\sqrt{\frac{\hat{K}(r)}{\pi}}
+$$</li>
+<li>H-function: also called $L(r)-r$
+$$
+\hat{H}(r)=
+$$</li>
+</ol>
+]]></content>
+        </item>
+        
+    </channel>
+</rss>

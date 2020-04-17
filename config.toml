@@ -82,13 +82,17 @@ disableHugoGeneratorInject = false
     logoHomeLink = "/"
 
   # Social icons
-    [[params.social]]
+  [[params.social]]
     name = "github"
     url  = "https://github.com/eufmike"
 
   [[params.social]]
     name = "email"
     url  = "mailto:m.cc.shih@gmail.com"
+  
+  [[params.social]]
+    name = "linkedin"
+    url = "https://www.linkedin.com/in/michaelcshih/"
 
 [languages]
   [languages.en]

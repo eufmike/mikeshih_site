@@ -77,11 +77,6 @@ disableHugoGeneratorInject = false
   defaultTheme = "light"
   # themeColor = "#252627"
 
-  [params.favicon.color]
-    mask = "#252627"
-    msapplication = "#252627"
-    theme = "#252627"
-
   [params.logo]
     logoText     = "Home"
     logoHomeLink = "/"

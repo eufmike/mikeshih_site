@@ -1,7 +1,7 @@
 ---
 title: "Density Plot"
 date: 2020-04-15
-draft: true
+draft: false
 ---
 
 ```python

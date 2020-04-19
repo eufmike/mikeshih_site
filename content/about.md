@@ -31,5 +31,6 @@ I am a hardcore fan of British-style Brass Band. My beloved euphonium is Besson 
 
 [GitHub](https://github.com/eufmike)
 [Email](m.cc.shih@gmail.com)
+[LinkedIn](https://www.linkedin.com/in/michaelcshih/)
 
-This website runs on an excellent open-source framework called [Hugo](https://gohugo.io/).
+This website runs on an excellent open-source framework [Hugo](https://gohugo.io/).

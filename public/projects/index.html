@@ -5,9 +5,9 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="Mike C. Shih ">
-<meta name="description" content="FIB-SEM Organelles Segmentation  STORM Imaging Analysis GitHub: STORM Imaging Analysis
-Features: Python, R, MATLAB, Numpy, Scipy, ImageJ/Fiji
-This project was a collaboration aiming to analyze the nanoclusters of membrane proteins and the interaction between membrane proteins and lipid rafts. The function combined multiple platforms and packages including Python, R (spatstat), MATLAB, and ImageJ/Fiji(Thunderstorm) to employ Ripley&amp;rsquo;s K function, Local-K, density map, and Coordinate-based colocalization.   Detail of point pattern analysis (Ripley&amp;rsquo;s K family) was described in the following posts." />
+<meta name="description" content="DL Segmentation on FIB-SEM Datasets GitHub: DL Segmentation on FIB-SEM Datasets
+Features: Python, Keras, TensorFlow
+This repository holds code for deep-learning-based image segmentation. The target datasets were 3D cellular images acquired from a Focused Ion Beam Scanning Electron Microscope (FIB-SEM). The goal is to label cells and their subcellular structures, such as nucleus, mitochondria, etc. These labels can offer medical insights by analyzing their features under different genetic conditions and treatments." />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
@@ -33,20 +33,20 @@ This project was a collaboration aiming to analyze the nanoclusters of membrane 
 
 
 <meta itemprop="name" content="Projects">
-<meta itemprop="description" content="FIB-SEM Organelles Segmentation  STORM Imaging Analysis GitHub: STORM Imaging Analysis
-Features: Python, R, MATLAB, Numpy, Scipy, ImageJ/Fiji
-This project was a collaboration aiming to analyze the nanoclusters of membrane proteins and the interaction between membrane proteins and lipid rafts. The function combined multiple platforms and packages including Python, R (spatstat), MATLAB, and ImageJ/Fiji(Thunderstorm) to employ Ripley&rsquo;s K function, Local-K, density map, and Coordinate-based colocalization.   Detail of point pattern analysis (Ripley&rsquo;s K family) was described in the following posts.">
+<meta itemprop="description" content="DL Segmentation on FIB-SEM Datasets GitHub: DL Segmentation on FIB-SEM Datasets
+Features: Python, Keras, TensorFlow
+This repository holds code for deep-learning-based image segmentation. The target datasets were 3D cellular images acquired from a Focused Ion Beam Scanning Electron Microscope (FIB-SEM). The goal is to label cells and their subcellular structures, such as nucleus, mitochondria, etc. These labels can offer medical insights by analyzing their features under different genetic conditions and treatments.">
 <meta itemprop="datePublished" content="2020-04-19T05:13:10-05:00" />
 <meta itemprop="dateModified" content="2020-04-19T05:13:10-05:00" />
-<meta itemprop="wordCount" content="227">
+<meta itemprop="wordCount" content="295">
 <meta itemprop="image" content="/"/>
 
 
 
 <meta itemprop="keywords" content="" /><meta property="og:title" content="Projects" />
-<meta property="og:description" content="FIB-SEM Organelles Segmentation  STORM Imaging Analysis GitHub: STORM Imaging Analysis
-Features: Python, R, MATLAB, Numpy, Scipy, ImageJ/Fiji
-This project was a collaboration aiming to analyze the nanoclusters of membrane proteins and the interaction between membrane proteins and lipid rafts. The function combined multiple platforms and packages including Python, R (spatstat), MATLAB, and ImageJ/Fiji(Thunderstorm) to employ Ripley&rsquo;s K function, Local-K, density map, and Coordinate-based colocalization.   Detail of point pattern analysis (Ripley&rsquo;s K family) was described in the following posts." />
+<meta property="og:description" content="DL Segmentation on FIB-SEM Datasets GitHub: DL Segmentation on FIB-SEM Datasets
+Features: Python, Keras, TensorFlow
+This repository holds code for deep-learning-based image segmentation. The target datasets were 3D cellular images acquired from a Focused Ion Beam Scanning Electron Microscope (FIB-SEM). The goal is to label cells and their subcellular structures, such as nucleus, mitochondria, etc. These labels can offer medical insights by analyzing their features under different genetic conditions and treatments." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/projects/" />
 <meta property="og:image" content="/"/>
@@ -56,9 +56,9 @@ This project was a collaboration aiming to analyze the nanoclusters of membrane 
 <meta name="twitter:image" content="/"/>
 
 <meta name="twitter:title" content="Projects"/>
-<meta name="twitter:description" content="FIB-SEM Organelles Segmentation  STORM Imaging Analysis GitHub: STORM Imaging Analysis
-Features: Python, R, MATLAB, Numpy, Scipy, ImageJ/Fiji
-This project was a collaboration aiming to analyze the nanoclusters of membrane proteins and the interaction between membrane proteins and lipid rafts. The function combined multiple platforms and packages including Python, R (spatstat), MATLAB, and ImageJ/Fiji(Thunderstorm) to employ Ripley&rsquo;s K function, Local-K, density map, and Coordinate-based colocalization.   Detail of point pattern analysis (Ripley&rsquo;s K family) was described in the following posts."/>
+<meta name="twitter:description" content="DL Segmentation on FIB-SEM Datasets GitHub: DL Segmentation on FIB-SEM Datasets
+Features: Python, Keras, TensorFlow
+This repository holds code for deep-learning-based image segmentation. The target datasets were 3D cellular images acquired from a Focused Ion Beam Scanning Electron Microscope (FIB-SEM). The goal is to label cells and their subcellular structures, such as nucleus, mitochondria, etc. These labels can offer medical insights by analyzing their features under different genetic conditions and treatments."/>
 
 
 
@@ -168,7 +168,7 @@ This project was a collaboration aiming to analyze the nanoclusters of membrane 
                 <div class="toc-title">Table of Contents</div>
                     <nav id="TableOfContents">
   <ul>
-    <li><a href="#fib-sem-organelles-segmentation">FIB-SEM Organelles Segmentation</a></li>
+    <li><a href="#dl-segmentation-on-fib-sem-datasets">DL Segmentation on FIB-SEM Datasets</a></li>
     <li><a href="#storm-imaging-analysis">STORM Imaging Analysis</a></li>
     <li><a href="#lung-vasculature-analysis">Lung Vasculature Analysis</a></li>
     <li><a href="#embryonic-brain-reconstruction">Embryonic Brain Reconstruction</a></li>
@@ -180,7 +180,10 @@ This project was a collaboration aiming to analyze the nanoclusters of membrane 
             
 
             <div class="post-content">
-                <h2 id="fib-sem-organelles-segmentation">FIB-SEM Organelles Segmentation</h2>
+                <h2 id="dl-segmentation-on-fib-sem-datasets">DL Segmentation on FIB-SEM Datasets</h2>
+<p>GitHub: <a href="https://github.com/eufmike/fibsem_seg_dl">DL Segmentation on FIB-SEM Datasets</a><br>
+Features: Python, Keras, TensorFlow</p>
+<p>This repository holds code for deep-learning-based image segmentation. The target datasets were 3D cellular images acquired from a Focused Ion Beam Scanning Electron Microscope (FIB-SEM). The goal is to label cells and their subcellular structures, such as nucleus, mitochondria, etc. These labels can offer medical insights by analyzing their features under different genetic conditions and treatments.</p>
 <hr>
 <h2 id="storm-imaging-analysis">STORM Imaging Analysis</h2>
 <p>GitHub: <a href="https://github.com/eufmike/storm_image_processing">STORM Imaging Analysis</a><br>
@@ -211,7 +214,7 @@ Features: Python, Pandas, Numpy, Matplotlib</p>
 Features: MATLAB, Image Processing Toolbox</p>
 <p>This project was to contour the brain region on embryonic slide scans acquired from Zeiss Axio Scan.Z1. The sample was stained with four different nucleus and epithelial markers, which can be used for segmentation. The images were then exported to MBF Brain Maker for image registration. I used Imaris for 3D reconstruction.</p>
 <figure>
-    <img src="/posts/projects/embryonic_brain.png"/> 
+    <img src="/posts/projects/embryonic_brain.jpg"/> 
 </figure>
 
 

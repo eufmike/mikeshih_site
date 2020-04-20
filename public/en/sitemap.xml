@@ -66,6 +66,10 @@
   </url>
   
   <url>
+    <loc>/about_v1/</loc>
+  </url>
+  
+  <url>
     <loc>/tags/</loc>
     <xhtml:link
                 rel="alternate"

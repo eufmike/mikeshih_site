@@ -1,7 +1,7 @@
 baseurl = "/"
 title   = "Mike Shih"
 languageCode = "en-us"
-theme = "hello-friend-ng"
+theme = "hello-friend-ng_original"
 
 PygmentsCodeFences = true
 PygmentsStyle = "monokai"

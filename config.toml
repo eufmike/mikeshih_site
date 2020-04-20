@@ -1,7 +1,7 @@
 baseurl = "/"
-title   = "Mike Shih"
+title   = "Mike C. Shih"
 languageCode = "en-us"
-theme = "hello-friend-ng_original"
+theme = "hello-friend-ng"
 
 PygmentsCodeFences = true
 PygmentsStyle = "monokai"
@@ -17,7 +17,7 @@ PygmentsStyle = "monokai"
   disableReadOtherPosts = false
 
   # Metadata mostly used in document's head
-  description = "Mike Shih's blog"
+  description = "Mike Shih's website"
   keywords = "homepage, blog"
   images = [""]
 
@@ -25,7 +25,7 @@ PygmentsStyle = "monokai"
   contentTypeName = "posts"
 
   # Default theme "light" or "dark"
-  defaultTheme = "dark"
+  defaultTheme = "light"
 
   # Default theme "light" or "dark"
   themeColor = "#252627"
@@ -34,10 +34,9 @@ PygmentsStyle = "monokai"
   [params.favicon.color]
     mask = "#252627"
     msapplication = "#252627"
-    theme = "#252627"
   
   [params.logo]
-    logoText = "mikeshih"
+    logoText = "Mike C. Shih"
     logoHomeLink = "/"
 
   [[params.social]]
@@ -48,9 +47,13 @@ PygmentsStyle = "monokai"
     name = "email"
     url  = "mailto:m.cc.shih@gmail.com"
 
+  [[params.social]]
+    name = "linkedin"
+    url = "https://www.linkedin.com/in/michaelcshih/"
+
 [languages]
   [languages.en]
-    title = "Home"
+    title = "Mike C. Shih"
     weight    = 1
     copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
 
@@ -66,9 +69,15 @@ PygmentsStyle = "monokai"
     name       = "About"
     url        = "about/"
   [[menu.main]]
-    identifier = "education"
-    name       = "Education"
-    url        = "education/"
+    identifier = "publications"
+    name       = "Publications"
+    url        = "publications/"
+
+  [[menu.main]]
+    identifier = "projects"
+    name       = "Projects"
+    url        = "projects/"
+
   [[menu.main]]
     identifier = "posts"
     name       = "Posts"

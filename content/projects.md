@@ -9,6 +9,7 @@ toc: true
 GitHub: [DL Segmentation on FIB-SEM Datasets](https://github.com/eufmike/fibsem_seg_dl)\
 Features: Python, Keras, TensorFlow
 
+This repository holds code for deep-learning-based image segmentation. The target datasets were 3D cellular images acquired from a Focused Ion Beam Scanning Electron Microscope (FIB-SEM). The goal is to label cells and their subcellular structures, such as nucleus, mitochondria, etc. These labels can offer medical insights by analyzing their features under different genetic conditions and treatments.
 
 ---
 

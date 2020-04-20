@@ -21,16 +21,15 @@ Mostly selfish reasons, I guess. I hope people know me better when they read my 
 
 Another reason is for documentation: not all the projects I involved have their chances to get published. It is very easy to forget what I did. Writing them down is a good idea and maybe someone will find them helpful or interesting in the future. 
 
-## Anything else? 
-I speak natively in Mandarin and Taiwanese. 
-
-I am a hardcore fan of British-style Brass Band. My beloved euphonium is Besson Prestige 2052, with Denis Wick mouthpiece SM4XR. 
-
+## What else? 
+* My name in Mandarin is Chien-Cheng (建誠), means "forging honesty."
+* I am from [Taiwan](https://en.wikipedia.org/wiki/Taiwan). I speak natively in Mandarin and Taiwanese. 
+* I am a hardcore fan of [British Brass Band](https://en.wikipedia.org/wiki/British_brass_band). My beloved [euphonium](https://en.wikipedia.org/wiki/Euphonium) is Besson Prestige 2052, with Denis Wick mouthpiece SM4XR. 
 
 ## Contact
+Email: [m.cc.shih@gmail.com](m.cc.shih@gmail.com)\
+CV: [LinkedIn](https://www.linkedin.com/in/michaelcshih/)\
+Code Profile: [GitHub](https://github.com/eufmike)\
+Academic Profile: [Google Scholar](https://scholar.google.com/citations?user=DtZcXZsAAAAJ)
 
-[GitHub](https://github.com/eufmike)
-[Email](m.cc.shih@gmail.com)
-[LinkedIn](https://www.linkedin.com/in/michaelcshih/)
-
-This website runs on an excellent open-source framework [Hugo](https://gohugo.io/).
+This website runs on an excellent open-source framework [Hugo](https://gohugo.io/). The current theme is adapted from [hello-friend-ng](https://themes.gohugo.io/hugo-theme-hello-friend-ng/).

@@ -4,7 +4,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2019-04-20T14:44:08-05:00</lastmod>
+    <lastmod>2020-04-19T05:13:25-05:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
@@ -18,12 +18,32 @@
   </url>
   
   <url>
-    <loc>/posts/2019/04/point-pattern-analysis/</loc>
-    <lastmod>2019-04-20T14:44:08-05:00</lastmod>
+    <loc>/publications/</loc>
+    <lastmod>2020-04-19T05:13:25-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/projects/</loc>
+    <lastmod>2020-04-19T05:13:10-05:00</lastmod>
   </url>
   
   <url>
     <loc>/posts/</loc>
+    <lastmod>2020-04-19T05:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/2020/04/ripleys-k-demo-02-k-test/</loc>
+    <lastmod>2020-04-19T05:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/2020/04/ripleys-k-demo-01-point-process-simulation/</loc>
+    <lastmod>2020-04-18T05:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/2019/04/point-pattern-analysis/</loc>
     <lastmod>2019-04-20T14:44:08-05:00</lastmod>
   </url>
   

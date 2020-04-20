@@ -1,6 +1,6 @@
 ---
 title: "Ripley's K Demo: 01 Point Process Simulation"
-date: 2020-04-18
+date: 2020-04-18T05:00:00-05:00
 draft: false
 toc: true
 ---

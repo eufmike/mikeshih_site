@@ -42,12 +42,12 @@ $$
 ### Canopy Reflectance of Ponderosa Pine Tree
 Getis & Franklin published a [paper](https://www.researchgate.net/publication/225885104_Second-Order_Neighborhood_Analysis_of_Mapped_Point_Patterns) in 1987 using this method to study canopy reflectance for a ponderosa pine forest in Klamath National Forest in North California. 108 ponderosa pine tree was measured in an area of 120 m x 120 m. They used $\hat{L}(t)$ for measuring the effect of canopy and created this plot. 
 
-{{<figure src="/posts/point_patern_analysis/img_01.png" width="450">}}
+{{<figure src="/posts/point_pattern_analysis/img_01.png" width="450">}}
 
 We can see that in plot a, $L(t)$ is above the line with its slope equals to 1, which representing the $L(t)$ of CSR. It implied the cluster was formed. While in plot c, the effect is opposite. 
 
 The $L(t)$ can also be plotted with isoline with a given distance ($t$):
-{{<figure src="/posts/point_patern_analysis/img_02.png" width="450">}}
+{{<figure src="/posts/point_pattern_analysis/img_02.png" width="450">}}
 
 ### Nanocluster of Membrane Proteins
 Bálint published [a paper](http://doi.org/10.1126/scisignal.aal3606) in 2018, using dSTORM microscopy to resolve the nanoclustering of a receptor called natural killer group 2D (NKG2D). One of the challenges using the STROM microscope is to translate thousands, or sometimes millions, of stochastic fluorescent events into meaningful measurements. In this case, they wanted to know the size of nanoclusters and the interactions between them. To achieve that, they extracted the Euclid coordinates, which require:
@@ -56,7 +56,7 @@ Bálint published [a paper](http://doi.org/10.1126/scisignal.aal3606) in 2018, u
 2. generating a density map based on $\hat{H}(t)$, 
 3. thresholding density maps into binary maps
 
-{{<figure src="/posts/point_patern_analysis/img_03.png" width="800">}}
+{{<figure src="/posts/point_pattern_analysis/img_03.png" width="800">}}
 
 Be aware that under CSR, the $\hat{H}(t)$ value should be 0 (It is $\hat{L}(t) - t$), so $\hat{H}(t)$ reduced when the radius increased. 
 

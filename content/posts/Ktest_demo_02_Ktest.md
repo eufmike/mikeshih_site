@@ -1,6 +1,6 @@
 ---
 title: "Ripley's K Demo: 02 K test"
-date: 2020-04-19
+date: 2020-04-19T05:00:00-05:00
 draft: false
 toc: true
 ---

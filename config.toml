@@ -3,7 +3,7 @@ title   = "Mike Shih"
 
 DefaultContentLanguage = "en"
 
-theme = "hello-friend-ng"
+theme = "hello-friend-ng_original"
 
 pygmentsCodefences = true
 pygmentsUseClasses = true

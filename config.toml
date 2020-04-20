@@ -1,5 +1,5 @@
 baseURL = "/"                                           # Solutions Engineer
-title   = "Mike C. Shih"
+title   = "Mike Shih"
 
 DefaultContentLanguage = "en"
 
@@ -37,7 +37,7 @@ disableHugoGeneratorInject = false
   posts = "/posts/:year/:month/:title/"
 
 [author]
-  name = "Mike C. Shih"
+  name = "Mike Shih"
 
 [blackfriday]
   hrefTargetBlank = true
@@ -78,7 +78,7 @@ disableHugoGeneratorInject = false
   # themeColor = "#252627"
 
   [params.logo]
-    logoText     = "Mike C. Shih"
+    logoText     = "Mike Shih"
     logoHomeLink = "/"
 
   # Social icons

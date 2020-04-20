@@ -6,7 +6,7 @@ draft: false
 {{< figure src="/img/avatar.jpg" width="300">}}
 
 ## Hi
-I am **Mike Shih**, an imaging data scientist, a husband, a father, and a euphonium enthusiast. I am originally from Taiwan and finished my Ph.D. in the United States. I was trained in *Neuroscience* and graduated with a Ph.D. in *Pharmacology*. I am currently doing imaging data science and live in St. Louis.<!--more-->  
+I am **Mike C.C. Shih**, an imaging data scientist, a husband, a father, and a euphonium enthusiast. I am originally from Taiwan and finished my Ph.D. in the United States. I was trained in *Neuroscience* and graduated with a Ph.D. in *Pharmacology*. I am currently doing imaging data science and live in St. Louis.<!--more-->  
 
 In my current position, I have been afforded unique opportunities to develop and integrate modern image processing methodologies to the sector of data analysis in our Center, including initiating a project focused on deep-learning based target detection. These projects have allowed me to drastically expand my capabilities in statistical inference, machine learning development and model fine-tuning, along with data-driven image acquisition. 
 

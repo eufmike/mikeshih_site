@@ -5,7 +5,10 @@ draft: false
 toc: true
 ---
 
-## FIB-SEM Organelles Segmentation
+## DL Segmentation on FIB-SEM Datasets
+GitHub: [DL Segmentation on FIB-SEM Datasets](https://github.com/eufmike/fibsem_seg_dl)\
+Features: Python, Keras, TensorFlow
+
 
 ---
 

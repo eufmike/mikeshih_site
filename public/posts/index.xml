@@ -1,21 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>Posts on Mike C. Shih</title>
-        <link>/posts/</link>
-        <description>Recent content in Posts on Mike C. Shih</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Sun, 19 Apr 2020 05:00:00 -0500</lastBuildDate>
-        <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
-        
-        <item>
-            <title>Ripley&#39;s K Demo: 02 K test</title>
-            <link>/posts/2020/04/ripleys-k-demo-02-k-test/</link>
-            <pubDate>Sun, 19 Apr 2020 05:00:00 -0500</pubDate>
-            
-            <guid>/posts/2020/04/ripleys-k-demo-02-k-test/</guid>
-            <description>Use previously generated point process for Ripley&amp;rsquo;s K test The default size of point process generator is 20 x 20 Please visit the code on my GitHub  # denpendency  import os, sys import scipy.stats import pandas as pd import numpy as np import matplotlib.pyplot as plt import matplotlib.style import matplotlib as mpl import spatialstat.ppsim as ppsim import spatialstat.spatialpattern as spatialpattern %load_ext autoreload %autoreload 2 # define IO dir path = &amp;#39;.</description>
-            <content type="html"><![CDATA[<ul>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Mike C. Shih</title><link>/posts/</link><description>Recent content in Posts on Mike C. Shih</description><generator>Hugo -- gohugo.io</generator><copyright>&lt;a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0&lt;/a></copyright><lastBuildDate>Sun, 19 Apr 2020 05:00:00 -0500</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Ripley's K Demo: 02 K test</title><link>/posts/2020/04/ripleys-k-demo-02-k-test/</link><pubDate>Sun, 19 Apr 2020 05:00:00 -0500</pubDate><guid>/posts/2020/04/ripleys-k-demo-02-k-test/</guid><description>Use previously generated point process for Ripley&amp;rsquo;s K test The default size of point process generator is 20 x 20 Please visit the code on my GitHub # denpendency import os, sys import scipy.stats import pandas as pd import numpy as np import matplotlib.pyplot as plt import matplotlib.style import matplotlib as mpl import spatialstat.ppsim as ppsim import spatialstat.spatialpattern as spatialpattern %load_ext autoreload %autoreload 2 # define IO dir path = &amp;#39;.</description><content type="html"><![CDATA[<ul>
 <li>Use previously generated point process for Ripley&rsquo;s K test</li>
 <li>The default size of point process generator is 20 x 20</li>
 <li>Please visit the code on my <a href="https://github.com/eufmike/Ripleys_K_function_demo">GitHub</a></li>
@@ -148,17 +131,7 @@ Done
 </code></pre></div><p><img src="/posts/Ktest_demo_02_Ktest/output_10_1.png" alt=""></p>
 <h2 id="conclusion">Conclusion</h2>
 <p>By comparing these results, we can see the Ripley&rsquo;s K test is able to reflect the culstering effect. This feature allow researchers to understand the relationship between distance and density, while the data is normalized by complete spatial randomness (CSR).</p>
-]]></content>
-        </item>
-        
-        <item>
-            <title>Ripley&#39;s K Demo: 01 Point Process Simulation</title>
-            <link>/posts/2020/04/ripleys-k-demo-01-point-process-simulation/</link>
-            <pubDate>Sat, 18 Apr 2020 05:00:00 -0500</pubDate>
-            
-            <guid>/posts/2020/04/ripleys-k-demo-01-point-process-simulation/</guid>
-            <description>Before demonstrating Ripley&amp;rsquo;s K function ($K(t)$), $L(t)$, and $H(t)$), I have to first simulate two types of point process: 1. Poisson point process and 2. Thomas point process. The point process generator is adpated from Connor Johnson&amp;rsquo;s blog post. The default size of point process generator is 20 x 20 Please visit the code on my GitHub  # denpendency  import os, sys import scipy.stats import pandas as pd import numpy as np import matplotlib.</description>
-            <content type="html"><![CDATA[<ul>
+]]></content></item><item><title>Ripley's K Demo: 01 Point Process Simulation</title><link>/posts/2020/04/ripleys-k-demo-01-point-process-simulation/</link><pubDate>Sat, 18 Apr 2020 05:00:00 -0500</pubDate><guid>/posts/2020/04/ripleys-k-demo-01-point-process-simulation/</guid><description>Before demonstrating Ripley&amp;rsquo;s K function ($K(t)$), $L(t)$, and $H(t)$), I have to first simulate two types of point process: 1. Poisson point process and 2. Thomas point process. The point process generator is adpated from Connor Johnson&amp;rsquo;s blog post. The default size of point process generator is 20 x 20 Please visit the code on my GitHub # denpendency import os, sys import scipy.stats import pandas as pd import numpy as np import matplotlib.</description><content type="html"><![CDATA[<ul>
 <li>Before demonstrating Ripley&rsquo;s K function ($K(t)$), $L(t)$, and $H(t)$), I have to first simulate two types of point process: 1. Poisson point process and 2. Thomas point process.</li>
 <li>The point process generator is adpated from Connor Johnson&rsquo;s blog post.</li>
 <li>The default size of point process generator is 20 x 20</li>
@@ -302,18 +275,8 @@ Density the ThomasPP array: 5.359077104022789
 </code></pre></div><p><img src="/posts/Ktest_demo_01_simulator/output_9_0.png" alt="png"></p>
 <h2 id="what-next">What Next&hellip;</h2>
 <p>In this simulation, it is easy to visually identify the clustering in Thomas Point Process. In the next post, I will demonstrate how to perfrom Ripley&rsquo;s K test by using our customized code, so we measure the relationship of density and distance.</p>
-]]></content>
-        </item>
-        
-        <item>
-            <title>Point Pattern Analysis</title>
-            <link>/posts/2019/04/point-pattern-analysis/</link>
-            <pubDate>Sat, 20 Apr 2019 14:44:08 -0500</pubDate>
-            
-            <guid>/posts/2019/04/point-pattern-analysis/</guid>
-            <description>As super-resolution microscopies get popular, we are seeing increasing researchers use them to resolve the spatial distribution of organelles. One good example is Airyscan. The resolution of Airyscan is slightly lower than SIM, yet, its success rate and stability make it the best bet when it comes to imaging organelle markers (MitoTracker or LysoTracker).
-Once image acquisition and labeling are made, to conclude, a certain level of spatial analysis could be necessary.</description>
-            <content type="html"><![CDATA[<p>As super-resolution microscopies get popular, we are seeing increasing researchers use them to resolve the spatial distribution of organelles. One good example is Airyscan. The resolution of Airyscan is slightly lower than SIM, yet, its success rate and stability make it the best bet when it comes to imaging organelle markers (<a href="https://www.thermofisher.com/order/catalog/product/M7514#/M7514">MitoTracker</a> or <a href="%5Blysotracker%5D(https://www.thermofisher.com/order/catalog/product/L7526?SID=srch-srp-L7526#/L7526?SID=srch-srp-L7526)">LysoTracker</a>).</p>
+]]></content></item><item><title>Point Pattern Analysis</title><link>/posts/2019/04/point-pattern-analysis/</link><pubDate>Sat, 20 Apr 2019 14:44:08 -0500</pubDate><guid>/posts/2019/04/point-pattern-analysis/</guid><description>As super-resolution microscopies get popular, we are seeing increasing researchers use them to resolve the spatial distribution of organelles. One good example is Airyscan. The resolution of Airyscan is slightly lower than SIM, yet, its success rate and stability make it the best bet when it comes to imaging organelle markers (MitoTracker or LysoTracker).
+Once image acquisition and labeling are made, to conclude, a certain level of spatial analysis could be necessary.</description><content type="html"><![CDATA[<p>As super-resolution microscopies get popular, we are seeing increasing researchers use them to resolve the spatial distribution of organelles. One good example is Airyscan. The resolution of Airyscan is slightly lower than SIM, yet, its success rate and stability make it the best bet when it comes to imaging organelle markers (<a href="https://www.thermofisher.com/order/catalog/product/M7514#/M7514">MitoTracker</a> or <a href="%5Blysotracker%5D(https://www.thermofisher.com/order/catalog/product/L7526?SID=srch-srp-L7526#/L7526?SID=srch-srp-L7526)">LysoTracker</a>).</p>
 <p>Once image acquisition and labeling are made, to conclude, a certain level of spatial analysis could be necessary. The nearest distance from label A to B is a common choice; it fails to identify clusters since the lack of distance-density relationship. <strong>Ripley’s K function</strong> can come in handy in this type of study. The measure describes the distance-density relationship and is normalized by theoretical Poisson distribution. It is a standard geostatistical tool, widely seen in ecology and geography.</p>
 <p>In fact, Ripley’s K function should not be a stranger to biologists. It was originally developed for Dr. Francis Crick’s challenge of measuring cell clustering. It and its derivatives are widely used in analyzing data collected from Single-Molecule localization Microscopies (SMLM), such as <a href="https://en.wikipedia.org/wiki/Photoactivated_localization_microscopy">stochastic optical reconstruction microscopy (STORM) and photoactivated localization microscopy (PALM)</a>.</p>
 <h2 id="ripleys-k-function">Ripley’s K function</h2>
@@ -394,8 +357,4 @@ $$</p>
 <li>R code: <a href="http://rstudio-pubs-static.s3.amazonaws.com/5292_2b2fae3795a144b2a4b486fd2fc6fc57.html">Point Patterns: Hypothesis Testing</a></li>
 <li>MATLAB tool:  <a href="https://github.com/quokka79/ClusterFields">GitHub - quokka79/ClusterFields: Getis &amp; Franklin Local Point Pattern Analysis for Localisation Microscopy Images</a></li>
 </ul>
-]]></content>
-        </item>
-        
-    </channel>
-</rss>
+]]></content></item></channel></rss>

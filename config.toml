@@ -1,4 +1,4 @@
-baseURL = "www.mikeshih.com"                                           # Solutions Engineer
+baseURL = "/"                                           # Solutions Engineer
 title   = "Mike C. Shih"
 
 DefaultContentLanguage = "en"

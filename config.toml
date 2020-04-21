@@ -6,6 +6,8 @@ theme = "hello-friend-ng"
 PygmentsCodeFences = true
 PygmentsStyle = "monokai"
 
+googleAnalytics = "UA-163877741-1"
+disqusShortname = "mikecshih"
 
 [params]
   dateform        = "Jan 2, 2006"

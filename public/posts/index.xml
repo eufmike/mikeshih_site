@@ -1,37 +1,55 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Mike Shih</title><link>/posts/</link><description>Recent content in Posts on Mike Shih</description><generator>Hugo -- gohugo.io</generator><copyright>&lt;a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0&lt;/a></copyright><lastBuildDate>Sun, 19 Apr 2020 05:00:00 -0500</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Ripley's K Demo: 02 K test</title><link>/posts/2020/04/ripleys-k-demo-02-k-test/</link><pubDate>Sun, 19 Apr 2020 05:00:00 -0500</pubDate><guid>/posts/2020/04/ripleys-k-demo-02-k-test/</guid><description>Use previously generated point process for Ripley&amp;rsquo;s K test The default size of point process generator is 20 x 20 Please visit the code on my GitHub # denpendency import os, sys import scipy.stats import pandas as pd import numpy as np import matplotlib.pyplot as plt import matplotlib.style import matplotlib as mpl import spatialstat.ppsim as ppsim import spatialstat.spatialpattern as spatialpattern %load_ext autoreload %autoreload 2 # define IO dir path = &amp;#39;.</description><content type="html"><![CDATA[<ul>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Posts on Mike C.C. Shih</title>
+        <link>/posts/</link>
+        <description>Recent content in Posts on Mike C.C. Shih</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+        <lastBuildDate>Sun, 19 Apr 2020 05:00:00 -0500</lastBuildDate>
+        <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Ripley&#39;s K Demo: 02 K test</title>
+            <link>/posts/ktest_demo_02_ktest/</link>
+            <pubDate>Sun, 19 Apr 2020 05:00:00 -0500</pubDate>
+            
+            <guid>/posts/ktest_demo_02_ktest/</guid>
+            <description>Use previously generated point process for Ripley&amp;rsquo;s K test The default size of point process generator is 20 x 20 Please visit the code on my GitHub  # denpendency  import os, sys import scipy.stats import pandas as pd import numpy as np import matplotlib.pyplot as plt import matplotlib.style import matplotlib as mpl import spatialstat.ppsim as ppsim import spatialstat.spatialpattern as spatialpattern %load_ext autoreload %autoreload 2 # define IO dir path = &amp;#39;.</description>
+            <content type="html"><![CDATA[<ul>
 <li>Use previously generated point process for Ripley&rsquo;s K test</li>
 <li>The default size of point process generator is 20 x 20</li>
 <li>Please visit the code on my <a href="https://github.com/eufmike/Ripleys_K_function_demo">GitHub</a></li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># denpendency </span>
-<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">scipy.stats</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span> 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">matplotlib.style</span>
-<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="kn">as</span> <span class="nn">mpl</span>
-<span class="kn">import</span> <span class="nn">spatialstat.ppsim</span> <span class="kn">as</span> <span class="nn">ppsim</span>
-<span class="kn">import</span> <span class="nn">spatialstat.spatialpattern</span> <span class="kn">as</span> <span class="nn">spatialpattern</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># denpendency </span>
+<span style="color:#f92672">import</span> os<span style="color:#f92672">,</span> sys
+<span style="color:#f92672">import</span> scipy.stats
+<span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd 
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">import</span> matplotlib.style
+<span style="color:#f92672">import</span> matplotlib <span style="color:#f92672">as</span> mpl
+<span style="color:#f92672">import</span> spatialstat.ppsim <span style="color:#f92672">as</span> ppsim
+<span style="color:#f92672">import</span> spatialstat.spatialpattern <span style="color:#f92672">as</span> spatialpattern
 
-<span class="o">%</span><span class="n">load_ext</span> <span class="n">autoreload</span>
-<span class="o">%</span><span class="n">autoreload</span> <span class="mi">2</span>
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># define IO dir</span>
-<span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span>
-<span class="n">opdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;output&#39;</span><span class="p">)</span>
-<span class="n">opdir_csv</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">opdir</span><span class="p">,</span> <span class="s1">&#39;csv&#39;</span><span class="p">)</span>
-<span class="n">opdir_fig</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">opdir</span><span class="p">,</span> <span class="s1">&#39;figure&#39;</span><span class="p">)</span>
+<span style="color:#f92672">%</span>load_ext autoreload
+<span style="color:#f92672">%</span>autoreload <span style="color:#ae81ff">2</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># define IO dir</span>
+path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;.&#39;</span>
+opdir <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(path, <span style="color:#e6db74">&#39;output&#39;</span>)
+opdir_csv <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(opdir, <span style="color:#e6db74">&#39;csv&#39;</span>)
+opdir_fig <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(opdir, <span style="color:#e6db74">&#39;figure&#39;</span>)
 
-<span class="c1"># load point processes</span>
-<span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;P_PoissonPP_20&#39;</span>
-<span class="n">inputpath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">opdir_csv</span><span class="p">,</span> <span class="n">filename</span> <span class="o">+</span> <span class="s1">&#39;.csv&#39;</span><span class="p">)</span>
-<span class="n">P_PoissonPP</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">inputpath</span><span class="p">)</span>
-<span class="n">P_PoissonPP</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">P_PoissonPP</span><span class="p">)</span>
+<span style="color:#75715e"># load point processes</span>
+filename <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;P_PoissonPP_20&#39;</span>
+inputpath <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(opdir_csv, filename <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;.csv&#39;</span>)
+P_PoissonPP <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(inputpath)
+P_PoissonPP <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(P_PoissonPP)
 
-<span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;P_ThomasPP_20&#39;</span>
-<span class="n">inputpath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">opdir_csv</span><span class="p">,</span> <span class="n">filename</span> <span class="o">+</span> <span class="s1">&#39;.csv&#39;</span><span class="p">)</span>
-<span class="n">P_ThomasPP</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">inputpath</span><span class="p">)</span>
-<span class="n">P_ThomasPP</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">P_ThomasPP</span><span class="p">)</span>
+filename <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;P_ThomasPP_20&#39;</span>
+inputpath <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(opdir_csv, filename <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;.csv&#39;</span>)
+P_ThomasPP <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(inputpath)
+P_ThomasPP <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(P_ThomasPP)
 </code></pre></div><h2 id="running-ripleys-k-test">Running Ripley&rsquo;s K test</h2>
 <ol>
 <li><a href="https://github.com/eufmike/Ripleys_K_function_demo">GitHub</a></li>
@@ -39,33 +57,33 @@
 <li>Instead of using edge correction, the current code offset the maximum radius from the edge, and only perform K test in offset region.</li>
 <li>run <code>spatialpattern.spest</code> and return K_r, L_r, H_r, RList, densitylist.</li>
 </ol>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Define offset region</span>
-<span class="n">rmax</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="n">Dx</span> <span class="o">=</span> <span class="mi">20</span>
-<span class="n">Dy</span> <span class="o">=</span> <span class="mi">20</span>
-<span class="n">xmin</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">+</span> <span class="n">rmax</span>
-<span class="n">xmax</span> <span class="o">=</span> <span class="n">Dx</span> <span class="o">-</span> <span class="n">rmax</span>
-<span class="n">ymin</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">+</span> <span class="n">rmax</span>
-<span class="n">ymax</span> <span class="o">=</span> <span class="n">Dx</span> <span class="o">-</span> <span class="n">rmax</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Define offset region</span>
+rmax <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>
+Dx <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>
+Dy <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>
+xmin <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">+</span> rmax
+xmax <span style="color:#f92672">=</span> Dx <span style="color:#f92672">-</span> rmax
+ymin <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">+</span> rmax
+ymax <span style="color:#f92672">=</span> Dx <span style="color:#f92672">-</span> rmax
 
-<span class="c1"># Create offset point pattern</span>
-<span class="c1"># add the idx as the third dimension</span>
-<span class="n">P_PoissonPP_center</span> <span class="o">=</span> <span class="n">ppsim</span><span class="o">.</span><span class="n">xyroi_idx</span><span class="p">(</span><span class="n">P_PoissonPP</span><span class="p">,</span> <span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">)</span>
-<span class="n">P_ThomasPP_center</span> <span class="o">=</span> <span class="n">ppsim</span><span class="o">.</span><span class="n">xyroi_idx</span><span class="p">(</span><span class="n">P_ThomasPP</span><span class="p">,</span> <span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">P_PoissonPP_density</span> <span class="o">=</span> <span class="n">ppsim</span><span class="o">.</span><span class="n">xydensity</span><span class="p">(</span><span class="n">P_PoissonPP</span><span class="p">,</span> <span class="n">Dx</span> <span class="o">=</span> <span class="n">Dx</span><span class="p">)</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">P_ThomasPP_density</span> <span class="o">=</span> <span class="n">ppsim</span><span class="o">.</span><span class="n">xydensity</span><span class="p">(</span><span class="n">P_ThomasPP</span><span class="p">,</span> <span class="n">Dx</span> <span class="o">=</span> <span class="n">Dx</span><span class="p">)</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&#34;The density of Poisson PP: {}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">P_PoissonPP_density</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&#34;The density of Thomas PP: {}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">P_ThomasPP_density</span><span class="p">))</span>
+<span style="color:#75715e"># Create offset point pattern</span>
+<span style="color:#75715e"># add the idx as the third dimension</span>
+P_PoissonPP_center <span style="color:#f92672">=</span> ppsim<span style="color:#f92672">.</span>xyroi_idx(P_PoissonPP, xmin, xmax, ymin, ymax)
+P_ThomasPP_center <span style="color:#f92672">=</span> ppsim<span style="color:#f92672">.</span>xyroi_idx(P_ThomasPP, xmin, xmax, ymin, ymax)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">P_PoissonPP_density <span style="color:#f92672">=</span> ppsim<span style="color:#f92672">.</span>xydensity(P_PoissonPP, Dx <span style="color:#f92672">=</span> Dx) [<span style="color:#ae81ff">0</span>]
+P_ThomasPP_density <span style="color:#f92672">=</span> ppsim<span style="color:#f92672">.</span>xydensity(P_ThomasPP, Dx <span style="color:#f92672">=</span> Dx) [<span style="color:#ae81ff">0</span>]
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;The density of Poisson PP: {}&#34;</span><span style="color:#f92672">.</span>format(P_PoissonPP_density))
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;The density of Thomas PP: {}&#34;</span><span style="color:#f92672">.</span>format(P_ThomasPP_density))
 </code></pre></div><pre><code>The density of Poisson PP: 0.995
 The density of Thomas PP: 4.745
 </code></pre>
 <h3 id="ripleys-k-for-poisson-pp">Ripley&rsquo;s K for Poisson PP</h3>
 <h4 id="anlysis">Anlysis</h4>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">K_r</span><span class="p">,</span> <span class="n">L_r</span><span class="p">,</span> <span class="n">H_r</span><span class="p">,</span> <span class="n">RList</span><span class="p">,</span> <span class="n">densitylist</span> <span class="o">=</span> <span class="n">spatialpattern</span><span class="o">.</span><span class="n">spest</span><span class="p">(</span><span class="n">input_array_ref</span> <span class="o">=</span> <span class="n">P_PoissonPP_center</span><span class="p">,</span> 
-                        <span class="n">input_array_all</span> <span class="o">=</span> <span class="n">P_PoissonPP</span><span class="p">,</span>
-                        <span class="n">function</span> <span class="o">=</span> <span class="s1">&#39;all&#39;</span><span class="p">,</span>
-                        <span class="n">density</span> <span class="o">=</span> <span class="n">P_PoissonPP_density</span><span class="p">,</span>
-                        <span class="n">rstart</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">rend</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">rstep</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">K_r, L_r, H_r, RList, densitylist <span style="color:#f92672">=</span> spatialpattern<span style="color:#f92672">.</span>spest(input_array_ref <span style="color:#f92672">=</span> P_PoissonPP_center, 
+                        input_array_all <span style="color:#f92672">=</span> P_PoissonPP,
+                        function <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;all&#39;</span>,
+                        density <span style="color:#f92672">=</span> P_PoissonPP_density,
+                        rstart <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, rend <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>, rstep <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.01</span>)
 </code></pre></div><pre><code>--------------------------
 Function: all
 Range: 0 - 5
@@ -77,30 +95,30 @@ Done
 --------------------------
 </code></pre>
 <h4 id="plot">Plot</h4>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># plot</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-<span class="n">plotsize_x</span> <span class="o">=</span> <span class="mf">20.0</span>
-<span class="n">plotsize_y</span> <span class="o">=</span> <span class="mf">20.0</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;PoissonPP&#39;</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># plot</span>
+fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span> (<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">10</span>))
+plotsize_x <span style="color:#f92672">=</span> <span style="color:#ae81ff">20.0</span>
+plotsize_y <span style="color:#f92672">=</span> <span style="color:#ae81ff">20.0</span>
+fig<span style="color:#f92672">.</span>suptitle(<span style="color:#e6db74">&#39;PoissonPP&#39;</span>)
 
-<span class="n">plot_1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">221</span><span class="p">)</span>
-<span class="n">plot_1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;K(r)&#39;</span><span class="p">)</span>
-<span class="n">plot_1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">RList</span><span class="p">,</span> <span class="n">K_r</span><span class="p">)</span>
-<span class="n">plot_2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">222</span><span class="p">)</span>
-<span class="n">plot_2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;L(r)&#39;</span><span class="p">)</span>
-<span class="n">plot_2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">RList</span><span class="p">,</span> <span class="n">L_r</span><span class="p">)</span>
-<span class="n">plot_3</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">223</span><span class="p">)</span>
-<span class="n">plot_3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;H(r)&#39;</span><span class="p">)</span>
-<span class="n">plot_3</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)</span>
-<span class="n">plot_3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">RList</span><span class="p">,</span> <span class="n">H_r</span><span class="p">)</span>
+plot_1 <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">221</span>)
+plot_1<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;K(r)&#39;</span>)
+plot_1<span style="color:#f92672">.</span>plot(RList, K_r)
+plot_2 <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">222</span>)
+plot_2<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;L(r)&#39;</span>)
+plot_2<span style="color:#f92672">.</span>plot(RList, L_r)
+plot_3 <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">223</span>)
+plot_3<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;H(r)&#39;</span>)
+plot_3<span style="color:#f92672">.</span>set_ylim(<span style="color:#f92672">-</span><span style="color:#ae81ff">0.2</span>, <span style="color:#ae81ff">1.5</span>)
+plot_3<span style="color:#f92672">.</span>plot(RList, H_r)
 </code></pre></div><p><img src="/posts/Ktest_demo_02_Ktest/output_10_0.png" alt=""></p>
 <h3 id="ripleys-k-for-thomas-pp">Ripley&rsquo;s K for Thomas PP</h3>
 <h4 id="anlysis-1">Anlysis</h4>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">K_r</span><span class="p">,</span> <span class="n">L_r</span><span class="p">,</span> <span class="n">H_r</span><span class="p">,</span> <span class="n">RList</span><span class="p">,</span> <span class="n">densitylist</span> <span class="o">=</span> <span class="n">spatialpattern</span><span class="o">.</span><span class="n">spest</span><span class="p">(</span><span class="n">input_array_ref</span> <span class="o">=</span> <span class="n">P_ThomasPP_center</span><span class="p">,</span> \
-                        <span class="n">input_array_all</span> <span class="o">=</span> <span class="n">P_ThomasPP</span><span class="p">,</span> \
-                        <span class="n">function</span> <span class="o">=</span> <span class="s1">&#39;all&#39;</span><span class="p">,</span> \
-                        <span class="n">density</span> <span class="o">=</span> <span class="n">P_ThomasPP_density</span><span class="p">,</span> \
-                        <span class="n">rstart</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">rend</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">rstep</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">K_r, L_r, H_r, RList, densitylist <span style="color:#f92672">=</span> spatialpattern<span style="color:#f92672">.</span>spest(input_array_ref <span style="color:#f92672">=</span> P_ThomasPP_center, \
+                        input_array_all <span style="color:#f92672">=</span> P_ThomasPP, \
+                        function <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;all&#39;</span>, \
+                        density <span style="color:#f92672">=</span> P_ThomasPP_density, \
+                        rstart <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, rend <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>, rstep <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.01</span>)
 </code></pre></div><pre><code>--------------------------
 Function: all
 Range: 0 - 5
@@ -112,58 +130,68 @@ Done
 --------------------------
 </code></pre>
 <h4 id="plot-1">Plot</h4>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># plot</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-<span class="n">plotsize_x</span> <span class="o">=</span> <span class="mf">20.0</span>
-<span class="n">plotsize_y</span> <span class="o">=</span> <span class="mf">20.0</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;ThomasPP&#39;</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># plot</span>
+fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span> (<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">10</span>))
+plotsize_x <span style="color:#f92672">=</span> <span style="color:#ae81ff">20.0</span>
+plotsize_y <span style="color:#f92672">=</span> <span style="color:#ae81ff">20.0</span>
+fig<span style="color:#f92672">.</span>suptitle(<span style="color:#e6db74">&#39;ThomasPP&#39;</span>)
 
-<span class="n">plot_1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">221</span><span class="p">)</span>
-<span class="n">plot_1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;K(r)&#39;</span><span class="p">)</span>
-<span class="n">plot_1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">RList</span><span class="p">,</span> <span class="n">K_r</span><span class="p">)</span>
-<span class="n">plot_2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">222</span><span class="p">)</span>
-<span class="n">plot_2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;L(r)&#39;</span><span class="p">)</span>
-<span class="n">plot_2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">RList</span><span class="p">,</span> <span class="n">L_r</span><span class="p">)</span>
-<span class="n">plot_3</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">223</span><span class="p">)</span>
-<span class="n">plot_3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;H(r)&#39;</span><span class="p">)</span>
-<span class="n">plot_3</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)</span>
-<span class="n">plot_3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">RList</span><span class="p">,</span> <span class="n">H_r</span><span class="p">)</span>
+plot_1 <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">221</span>)
+plot_1<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;K(r)&#39;</span>)
+plot_1<span style="color:#f92672">.</span>plot(RList, K_r)
+plot_2 <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">222</span>)
+plot_2<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;L(r)&#39;</span>)
+plot_2<span style="color:#f92672">.</span>plot(RList, L_r)
+plot_3 <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">223</span>)
+plot_3<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;H(r)&#39;</span>)
+plot_3<span style="color:#f92672">.</span>set_ylim(<span style="color:#f92672">-</span><span style="color:#ae81ff">0.2</span>, <span style="color:#ae81ff">1.5</span>)
+plot_3<span style="color:#f92672">.</span>plot(RList, H_r)
 </code></pre></div><p><img src="/posts/Ktest_demo_02_Ktest/output_10_1.png" alt=""></p>
 <h2 id="conclusion">Conclusion</h2>
 <p>By comparing these results, we can see the Ripley&rsquo;s K test is able to reflect the culstering effect. This feature allow researchers to understand the relationship between distance and density, while the data is normalized by complete spatial randomness (CSR).</p>
-]]></content></item><item><title>Ripley's K Demo: 01 Point Process Simulation</title><link>/posts/2020/04/ripleys-k-demo-01-point-process-simulation/</link><pubDate>Sat, 18 Apr 2020 05:00:00 -0500</pubDate><guid>/posts/2020/04/ripleys-k-demo-01-point-process-simulation/</guid><description>Before demonstrating Ripley&amp;rsquo;s K function ($K(t)$), $L(t)$, and $H(t)$), I have to first simulate two types of point process: 1. Poisson point process and 2. Thomas point process. The point process generator is adpated from Connor Johnson&amp;rsquo;s blog post. The default size of point process generator is 20 x 20 Please visit the code on my GitHub # denpendency import os, sys import scipy.stats import pandas as pd import numpy as np import matplotlib.</description><content type="html"><![CDATA[<ul>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Ripley&#39;s K Demo: 01 Point Process Simulation</title>
+            <link>/posts/ktest_demo_01_simulator/</link>
+            <pubDate>Sat, 18 Apr 2020 05:00:00 -0500</pubDate>
+            
+            <guid>/posts/ktest_demo_01_simulator/</guid>
+            <description>Before demonstrating Ripley&amp;rsquo;s K function ($K(t)$), $L(t)$, and $H(t)$), I have to first simulate two types of point process: 1. Poisson point process and 2. Thomas point process. The point process generator is adpated from Connor Johnson&amp;rsquo;s blog post. The default size of point process generator is 20 x 20 Please visit the code on my GitHub  # denpendency  import os, sys import scipy.stats import pandas as pd import numpy as np import matplotlib.</description>
+            <content type="html"><![CDATA[<ul>
 <li>Before demonstrating Ripley&rsquo;s K function ($K(t)$), $L(t)$, and $H(t)$), I have to first simulate two types of point process: 1. Poisson point process and 2. Thomas point process.</li>
 <li>The point process generator is adpated from Connor Johnson&rsquo;s blog post.</li>
 <li>The default size of point process generator is 20 x 20</li>
 <li>Please visit the code on my <a href="https://github.com/eufmike/Ripleys_K_function_demo">GitHub</a></li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># denpendency </span>
-<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">scipy.stats</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span> 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">matplotlib.style</span>
-<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="kn">as</span> <span class="nn">mpl</span>
-<span class="kn">import</span> <span class="nn">spatialstat.ppsim</span> <span class="kn">as</span> <span class="nn">ppsim</span>
-<span class="o">%</span><span class="n">load_ext</span> <span class="n">autoreload</span>
-<span class="o">%</span><span class="n">autoreload</span> <span class="mi">2</span>
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># define IO dir</span>
-<span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span>
-<span class="n">opdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;output&#39;</span><span class="p">)</span>
-<span class="n">opdir_csv</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">opdir</span><span class="p">,</span> <span class="s1">&#39;csv&#39;</span><span class="p">)</span>
-<span class="n">opdir_fig</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">opdir</span><span class="p">,</span> <span class="s1">&#39;figure&#39;</span><span class="p">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># denpendency </span>
+<span style="color:#f92672">import</span> os<span style="color:#f92672">,</span> sys
+<span style="color:#f92672">import</span> scipy.stats
+<span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd 
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">import</span> matplotlib.style
+<span style="color:#f92672">import</span> matplotlib <span style="color:#f92672">as</span> mpl
+<span style="color:#f92672">import</span> spatialstat.ppsim <span style="color:#f92672">as</span> ppsim
+<span style="color:#f92672">%</span>load_ext autoreload
+<span style="color:#f92672">%</span>autoreload <span style="color:#ae81ff">2</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># define IO dir</span>
+path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;.&#39;</span>
+opdir <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(path, <span style="color:#e6db74">&#39;output&#39;</span>)
+opdir_csv <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(opdir, <span style="color:#e6db74">&#39;csv&#39;</span>)
+opdir_fig <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(opdir, <span style="color:#e6db74">&#39;figure&#39;</span>)
 
-<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">opdir</span><span class="p">):</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">opdir</span><span class="p">)</span>
-<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">opdir_csv</span><span class="p">):</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">opdir_csv</span><span class="p">)</span>
-<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">opdir_fig</span><span class="p">):</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">opdir_fig</span><span class="p">)</span>       
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>exists(opdir):
+    os<span style="color:#f92672">.</span>makedirs(opdir)
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>exists(opdir_csv):
+    os<span style="color:#f92672">.</span>makedirs(opdir_csv)
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>exists(opdir_fig):
+    os<span style="color:#f92672">.</span>makedirs(opdir_fig)       
  
-<span class="k">print</span><span class="p">(</span><span class="n">opdir</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">opdir_csv</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">opdir_fig</span><span class="p">)</span>
+<span style="color:#66d9ef">print</span>(opdir)
+<span style="color:#66d9ef">print</span>(opdir_csv)
+<span style="color:#66d9ef">print</span>(opdir_fig)
 </code></pre></div><pre><code>./output
 ./output/csv
 ./output/figure
@@ -173,29 +201,29 @@ Done
 <li>Create Poisson PP by <code>ppsim.PoissonPP</code>. Please visit the code on my <a href="https://github.com/eufmike/Ripleys_K_function_demo">GitHub</a></li>
 <li>export to *.csv</li>
 </ol>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Set seed</span>
-<span class="n">seed</span> <span class="o">=</span> <span class="mi">1219</span>
-<span class="n">rate</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">Dx</span> <span class="o">=</span> <span class="mi">20</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Set seed</span>
+seed <span style="color:#f92672">=</span> <span style="color:#ae81ff">1219</span>
+rate <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+Dx <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>
 
-<span class="c1"># set data range</span>
-<span class="n">xmin</span> <span class="o">=</span> <span class="mi">0</span> 
-<span class="n">xmax</span> <span class="o">=</span> <span class="n">Dx</span>
-<span class="n">ymin</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">ymax</span> <span class="o">=</span> <span class="n">Dx</span>
+<span style="color:#75715e"># set data range</span>
+xmin <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> 
+xmax <span style="color:#f92672">=</span> Dx
+ymin <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+ymax <span style="color:#f92672">=</span> Dx
 
-<span class="n">P_PoissonPP</span> <span class="o">=</span> <span class="n">ppsim</span><span class="o">.</span><span class="n">PoissonPP</span><span class="p">(</span><span class="n">rt</span> <span class="o">=</span> <span class="n">rate</span><span class="p">,</span> <span class="n">seed</span> <span class="o">=</span> <span class="n">seed</span><span class="p">)</span>
-<span class="c1"># calculate density</span>
-<span class="n">P_PoissonPP_density</span> <span class="o">=</span> <span class="n">ppsim</span><span class="o">.</span><span class="n">xydensity</span><span class="p">(</span><span class="n">P_PoissonPP</span><span class="p">)</span>
+P_PoissonPP <span style="color:#f92672">=</span> ppsim<span style="color:#f92672">.</span>PoissonPP(rt <span style="color:#f92672">=</span> rate, seed <span style="color:#f92672">=</span> seed)
+<span style="color:#75715e"># calculate density</span>
+P_PoissonPP_density <span style="color:#f92672">=</span> ppsim<span style="color:#f92672">.</span>xydensity(P_PoissonPP)
 
-<span class="c1"># save to csv</span>
-<span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;P_PoissonPP_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">Dx</span><span class="p">)</span>
-<span class="n">outputpath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">opdir_csv</span><span class="p">,</span> <span class="n">filename</span> <span class="o">+</span> <span class="s1">&#39;.csv&#39;</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">P_PoissonPP</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">])</span> 
-<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">outputpath</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="bp">False</span><span class="p">)</span>
+<span style="color:#75715e"># save to csv</span>
+filename <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;P_PoissonPP_&#39;</span> <span style="color:#f92672">+</span> str(Dx)
+outputpath <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(opdir_csv, filename <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;.csv&#39;</span>)
+df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(P_PoissonPP, columns <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;x&#39;</span>, <span style="color:#e6db74">&#39;y&#39;</span>]) 
+df<span style="color:#f92672">.</span>to_csv(outputpath, index <span style="color:#f92672">=</span> False)
 
-<span class="k">print</span><span class="p">(</span><span class="s2">&#34;Size of the PoissonPP array: {}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">P_PoissonPP</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&#34;Density the PoissonPP array: {}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">P_PoissonPP_density</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Size of the PoissonPP array: {}&#34;</span><span style="color:#f92672">.</span>format(P_PoissonPP<span style="color:#f92672">.</span>shape))
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Density the PoissonPP array: {}&#34;</span><span style="color:#f92672">.</span>format(P_PoissonPP_density[<span style="color:#ae81ff">0</span>]))
 </code></pre></div><pre><code>Size of the PoissonPP array: (398, 2)
 Density the PoissonPP array: 1.0070902229053578
 </code></pre>
@@ -205,78 +233,88 @@ Density the PoissonPP array: 1.0070902229053578
 <li>Create Thomas PP by <code>ppsim.ThomasPP</code>. Please visit the code on my <a href="https://github.com/eufmike/Ripleys_K_function_demo">GitHub</a></li>
 <li>export to *.csv</li>
 </ol>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Set seed</span>
-<span class="n">seed</span> <span class="o">=</span> <span class="mi">1219</span>
-<span class="n">rate</span> <span class="o">=</span> <span class="mf">0.1</span>
-<span class="n">Dx</span> <span class="o">=</span> <span class="mi">20</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Set seed</span>
+seed <span style="color:#f92672">=</span> <span style="color:#ae81ff">1219</span>
+rate <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.1</span>
+Dx <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>
 
-<span class="c1"># create parent points</span>
-<span class="n">P_parent</span> <span class="o">=</span> <span class="n">ppsim</span><span class="o">.</span><span class="n">PoissonPP</span><span class="p">(</span><span class="n">rt</span> <span class="o">=</span> <span class="n">rate</span><span class="p">,</span> <span class="n">seed</span> <span class="o">=</span> <span class="n">seed</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&#34;Size of the P_parent array: {}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">P_parent</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span style="color:#75715e"># create parent points</span>
+P_parent <span style="color:#f92672">=</span> ppsim<span style="color:#f92672">.</span>PoissonPP(rt <span style="color:#f92672">=</span> rate, seed <span style="color:#f92672">=</span> seed)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Size of the P_parent array: {}&#34;</span><span style="color:#f92672">.</span>format(P_parent<span style="color:#f92672">.</span>shape))
 </code></pre></div><pre><code>Size of the P_parent array: (39, 2)
 </code></pre>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># create children points</span>
-<span class="n">sigma</span> <span class="o">=</span> <span class="mf">0.3</span>
-<span class="n">mu</span> <span class="o">=</span> <span class="mi">50</span>
-<span class="n">P_children</span><span class="p">,</span> <span class="n">P_parent</span> <span class="o">=</span> <span class="n">ppsim</span><span class="o">.</span><span class="n">ThomasPP</span><span class="p">(</span><span class="n">rt</span> <span class="o">=</span> <span class="n">rate</span><span class="p">,</span>
-                                <span class="n">sigma</span> <span class="o">=</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">mu</span> <span class="o">=</span> <span class="n">mu</span><span class="p">,</span> <span class="n">seed</span> <span class="o">=</span> <span class="n">seed</span><span class="p">)</span>
-<span class="c1"># reduce data to region of interest</span>
-<span class="n">xmin</span> <span class="o">=</span> <span class="mi">0</span> 
-<span class="n">xmax</span> <span class="o">=</span> <span class="n">Dx</span>
-<span class="n">ymin</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">ymax</span> <span class="o">=</span> <span class="n">Dx</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># create children points</span>
+sigma <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.3</span>
+mu <span style="color:#f92672">=</span> <span style="color:#ae81ff">50</span>
+P_children, P_parent <span style="color:#f92672">=</span> ppsim<span style="color:#f92672">.</span>ThomasPP(rt <span style="color:#f92672">=</span> rate,
+                                sigma <span style="color:#f92672">=</span> sigma, mu <span style="color:#f92672">=</span> mu, seed <span style="color:#f92672">=</span> seed)
+<span style="color:#75715e"># reduce data to region of interest</span>
+xmin <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> 
+xmax <span style="color:#f92672">=</span> Dx
+ymin <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+ymax <span style="color:#f92672">=</span> Dx
 
-<span class="c1"># crop data and calculate density</span>
-<span class="n">P_ThomasPP</span> <span class="o">=</span> <span class="n">ppsim</span><span class="o">.</span><span class="n">xyroi</span><span class="p">(</span><span class="n">P_children</span><span class="p">,</span> <span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">)</span>
-<span class="n">P_ThomasPP_density</span> <span class="o">=</span> <span class="n">ppsim</span><span class="o">.</span><span class="n">xydensity</span><span class="p">(</span><span class="n">P_ThomasPP</span><span class="p">)</span> 
+<span style="color:#75715e"># crop data and calculate density</span>
+P_ThomasPP <span style="color:#f92672">=</span> ppsim<span style="color:#f92672">.</span>xyroi(P_children, xmin, xmax, ymin, ymax)
+P_ThomasPP_density <span style="color:#f92672">=</span> ppsim<span style="color:#f92672">.</span>xydensity(P_ThomasPP) 
 
-<span class="c1"># save to csv</span>
-<span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;P_ThomasPP_20&#39;</span>
-<span class="n">outputpath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">opdir_csv</span><span class="p">,</span> <span class="n">filename</span> <span class="o">+</span> <span class="s1">&#39;.csv&#39;</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">P_ThomasPP</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">])</span> 
-<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">outputpath</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="bp">False</span><span class="p">)</span>
+<span style="color:#75715e"># save to csv</span>
+filename <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;P_ThomasPP_20&#39;</span>
+outputpath <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(opdir_csv, filename <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;.csv&#39;</span>)
+df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(P_ThomasPP, columns <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;x&#39;</span>, <span style="color:#e6db74">&#39;y&#39;</span>]) 
+df<span style="color:#f92672">.</span>to_csv(outputpath, index <span style="color:#f92672">=</span> False)
 
-<span class="k">print</span><span class="p">(</span><span class="s2">&#34;Size of the ThomasPP array: {}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">P_ThomasPP</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&#34;Density the ThomasPP array: {}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">P_ThomasPP_density</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Size of the ThomasPP array: {}&#34;</span><span style="color:#f92672">.</span>format(P_ThomasPP<span style="color:#f92672">.</span>shape))
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Density the ThomasPP array: {}&#34;</span><span style="color:#f92672">.</span>format(P_ThomasPP_density[<span style="color:#ae81ff">0</span>]))
 </code></pre></div><pre><code>0 20 0 20
 Size of the ThomasPP array: (1898, 2)
 Density the ThomasPP array: 5.359077104022789
 </code></pre>
 <h2 id="plot-poisson-and-thomas-pp">Plot Poisson and Thomas PP</h2>
 <p>Now having point process we need, we can make plots and show them side-by-side.</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># set figure size</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-<span class="n">plotsize_x</span> <span class="o">=</span> <span class="mf">20.0</span>
-<span class="n">plotsize_y</span> <span class="o">=</span> <span class="mf">20.0</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># set figure size</span>
+plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span> (<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">10</span>))
+plotsize_x <span style="color:#f92672">=</span> <span style="color:#ae81ff">20.0</span>
+plotsize_y <span style="color:#f92672">=</span> <span style="color:#ae81ff">20.0</span>
 
-<span class="c1"># subplot 1</span>
-<span class="n">plot_1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">221</span><span class="p">)</span>
-<span class="n">plot_1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">P_children</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">P_children</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> 
-                <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">edgecolors</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
-<span class="n">plot_1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;ThomasPP&#39;</span><span class="p">)</span>
-<span class="n">plot_1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">])</span>
-<span class="n">plot_1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">])</span>
+<span style="color:#75715e"># subplot 1</span>
+plot_1 <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">221</span>)
+plot_1<span style="color:#f92672">.</span>scatter(P_children[:, <span style="color:#ae81ff">0</span>], P_children[:, <span style="color:#ae81ff">1</span>], 
+                color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;b&#39;</span>, edgecolors <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;none&#39;</span>, marker <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;.&#39;</span>, alpha <span style="color:#f92672">=</span><span style="color:#ae81ff">0.3</span>)
+plot_1<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;ThomasPP&#39;</span>)
+plot_1<span style="color:#f92672">.</span>set_xlim([<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">20</span>])
+plot_1<span style="color:#f92672">.</span>set_ylim([<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">20</span>])
 
-<span class="c1"># subplot 2</span>
-<span class="n">plot_2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">222</span><span class="p">)</span>
-<span class="n">plot_2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">P_PoissonPP</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">P_PoissonPP</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> 
-                <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">edgecolors</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
-<span class="n">plot_2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;PoissonPP&#39;</span><span class="p">)</span>
-<span class="n">plot_2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">])</span>
-<span class="n">plot_2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">])</span>
+<span style="color:#75715e"># subplot 2</span>
+plot_2 <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">222</span>)
+plot_2<span style="color:#f92672">.</span>scatter(P_PoissonPP[:, <span style="color:#ae81ff">0</span>], P_PoissonPP[:, <span style="color:#ae81ff">1</span>], 
+                color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;b&#39;</span>, edgecolors <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;none&#39;</span>, marker <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;.&#39;</span>, alpha <span style="color:#f92672">=</span><span style="color:#ae81ff">0.3</span>)
+plot_2<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;PoissonPP&#39;</span>)
+plot_2<span style="color:#f92672">.</span>set_xlim([<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">20</span>])
+plot_2<span style="color:#f92672">.</span>set_ylim([<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">20</span>])
 
-<span class="c1"># save figure</span>
-<span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;Point_Process_20&#39;</span>
-<span class="n">outputpath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">opdir_fig</span><span class="p">,</span> <span class="n">filename</span> <span class="o">+</span> <span class="s1">&#39;.png&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">outputpath</span><span class="p">)</span>
+<span style="color:#75715e"># save figure</span>
+filename <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Point_Process_20&#39;</span>
+outputpath <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(opdir_fig, filename <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;.png&#39;</span>)
+plt<span style="color:#f92672">.</span>savefig(outputpath)
 
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+plt<span style="color:#f92672">.</span>show()
 
 </code></pre></div><p><img src="/posts/Ktest_demo_01_simulator/output_9_0.png" alt="png"></p>
 <h2 id="what-next">What Next&hellip;</h2>
 <p>In this simulation, it is easy to visually identify the clustering in Thomas Point Process. In the next post, I will demonstrate how to perfrom Ripley&rsquo;s K test by using our customized code, so we measure the relationship of density and distance.</p>
-]]></content></item><item><title>Point Pattern Analysis</title><link>/posts/2019/04/point-pattern-analysis/</link><pubDate>Sat, 20 Apr 2019 14:44:08 -0500</pubDate><guid>/posts/2019/04/point-pattern-analysis/</guid><description>As super-resolution microscopies get popular, we are seeing increasing researchers use them to resolve the spatial distribution of organelles. One good example is Airyscan. The resolution of Airyscan is slightly lower than SIM, yet, its success rate and stability make it the best bet when it comes to imaging organelle markers (MitoTracker or LysoTracker).
-Once image acquisition and labeling are made, to conclude, a certain level of spatial analysis could be necessary.</description><content type="html"><![CDATA[<p>As super-resolution microscopies get popular, we are seeing increasing researchers use them to resolve the spatial distribution of organelles. One good example is Airyscan. The resolution of Airyscan is slightly lower than SIM, yet, its success rate and stability make it the best bet when it comes to imaging organelle markers (<a href="https://www.thermofisher.com/order/catalog/product/M7514#/M7514">MitoTracker</a> or <a href="%5Blysotracker%5D(https://www.thermofisher.com/order/catalog/product/L7526?SID=srch-srp-L7526#/L7526?SID=srch-srp-L7526)">LysoTracker</a>).</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Point Pattern Analysis</title>
+            <link>/posts/point_pattern_analysis/</link>
+            <pubDate>Sat, 20 Apr 2019 14:44:08 -0500</pubDate>
+            
+            <guid>/posts/point_pattern_analysis/</guid>
+            <description>As super-resolution microscopies get popular, we are seeing increasing researchers use them to resolve the spatial distribution of organelles. One good example is Airyscan. The resolution of Airyscan is slightly lower than SIM, yet, its success rate and stability make it the best bet when it comes to imaging organelle markers (MitoTracker or LysoTracker).
+Once image acquisition and labeling are made, to conclude, a certain level of spatial analysis could be necessary.</description>
+            <content type="html"><![CDATA[<p>As super-resolution microscopies get popular, we are seeing increasing researchers use them to resolve the spatial distribution of organelles. One good example is Airyscan. The resolution of Airyscan is slightly lower than SIM, yet, its success rate and stability make it the best bet when it comes to imaging organelle markers (<a href="https://www.thermofisher.com/order/catalog/product/M7514#/M7514">MitoTracker</a> or <a href="%5Blysotracker%5D(https://www.thermofisher.com/order/catalog/product/L7526?SID=srch-srp-L7526#/L7526?SID=srch-srp-L7526)">LysoTracker</a>).</p>
 <p>Once image acquisition and labeling are made, to conclude, a certain level of spatial analysis could be necessary. The nearest distance from label A to B is a common choice; it fails to identify clusters since the lack of distance-density relationship. <strong>Ripley’s K function</strong> can come in handy in this type of study. The measure describes the distance-density relationship and is normalized by theoretical Poisson distribution. It is a standard geostatistical tool, widely seen in ecology and geography.</p>
 <p>In fact, Ripley’s K function should not be a stranger to biologists. It was originally developed for Dr. Francis Crick’s challenge of measuring cell clustering. It and its derivatives are widely used in analyzing data collected from Single-Molecule localization Microscopies (SMLM), such as <a href="https://en.wikipedia.org/wiki/Photoactivated_localization_microscopy">stochastic optical reconstruction microscopy (STORM) and photoactivated localization microscopy (PALM)</a>.</p>
 <h2 id="ripleys-k-function">Ripley’s K function</h2>
@@ -357,4 +395,8 @@ $$</p>
 <li>R code: <a href="http://rstudio-pubs-static.s3.amazonaws.com/5292_2b2fae3795a144b2a4b486fd2fc6fc57.html">Point Patterns: Hypothesis Testing</a></li>
 <li>MATLAB tool:  <a href="https://github.com/quokka79/ClusterFields">GitHub - quokka79/ClusterFields: Getis &amp; Franklin Local Point Pattern Analysis for Localisation Microscopy Images</a></li>
 </ul>
-]]></content></item></channel></rss>
+]]></content>
+        </item>
+        
+    </channel>
+</rss>

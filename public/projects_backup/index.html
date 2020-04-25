@@ -11,7 +11,7 @@ This repository holds code for deep-learning-based image segmentation. The targe
 <meta name="keywords" content="homepage, blog" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="#252627" />
-<link rel="canonical" href="/projects/" />
+<link rel="canonical" href="/projects_backup/" />
 
 
     <title>
@@ -57,7 +57,7 @@ This repository holds code for deep-learning-based image segmentation. The targe
 Features: Python, Keras, TensorFlow
 This repository holds code for deep-learning-based image segmentation. The target datasets were 3D cellular images acquired from a Focused Ion Beam Scanning Electron Microscope (FIB-SEM). The goal is to label cells and their subcellular structures, such as nucleus, mitochondria, etc. These labels can offer medical insights by analyzing their features under different genetic conditions and treatments." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/projects/" />
+<meta property="og:url" content="/projects_backup/" />
 <meta property="og:image" content="/"/>
 <meta property="article:published_time" content="2020-04-19T05:13:10-05:00" />
 <meta property="article:modified_time" content="2020-04-19T05:13:10-05:00" /><meta property="og:site_name" content="Mike C.C. Shih" />
@@ -171,7 +171,7 @@ This repository holds code for deep-learning-based image segmentation. The targe
         </div>
 
         <article>
-            <h2 class="post-title"><a href="/projects/">Projects</a></h2>
+            <h2 class="post-title"><a href="/projects_backup/">Projects</a></h2>
                 <hr />
                 <aside id="toc">
                 <div class="toc-title">Table of Contents</div>
@@ -197,8 +197,12 @@ Features: Python, Keras, TensorFlow</p>
 <h2 id="storm-imaging-analysis">STORM Imaging Analysis</h2>
 <p>GitHub: <a href="https://github.com/eufmike/storm_image_processing">STORM Imaging Analysis</a><br>
 Features: Python, R, MATLAB, Numpy, Scipy, ImageJ/Fiji</p>
-<p>This project was a collaboration aiming to analyze the nanoclusters of membrane proteins and the interaction between membrane proteins and lipid rafts. The function combined multiple platforms and packages including Python, R (spatstat), MATLAB, and ImageJ/Fiji(Thunderstorm) to employ Ripley&rsquo;s K function, Local-K, density map, and Coordinate-based colocalization.</p>
-<p>Detail of point pattern analysis (Ripley&rsquo;s K family) was described in the following posts.</p>
+<p>This project was a collaboration aiming to analyze the nanoclusters of membrane proteins and the interaction between membrane proteins and lipid rafts. The function combined multiple platforms and packages including Python, R (spatstat), MATLAB, and ImageJ/Fiji(Thunderstorm) to employ Ripley&rsquo;s K function, Local-K, density map, and Coordinate-based colocalization.
+<figure>
+    <img src="/posts/projects/storm_image_analysis.png"/> 
+</figure>
+
+Detail of point pattern analysis (Ripley&rsquo;s K family) was described in the following posts.</p>
 <ul>
 <li><a href="/content/posts/point_pattern_analysis.md">Point Pattern Analysis</a></li>
 <li><a href="/content/posts/Ktest_demo_01_simulator.md">Ripley&rsquo;s K Demo: 01 Point Process Simulation</a></li>
@@ -208,12 +212,20 @@ Features: Python, R, MATLAB, Numpy, Scipy, ImageJ/Fiji</p>
 <h2 id="lung-vasculature-analysis">Lung Vasculature Analysis</h2>
 <p>GitHub: <a href="https://github.com/eufmike/woo_lung_analysis">Lung Vasculature Analysis</a><br>
 Features: Python, Pandas, Numpy, Matplotlib</p>
-<p>This project was to analyze mice lung vasculature labeled with gold nanoparticles. 3D tomography was acquired from Zeiss Xradia. I used Amira to segment targeted regions by combining a series of background subtraction, edge detection, and manual labeling. Filament analysis was then applied by using built-in auto-skeletonization to extract the backbone of lung vasculature and its diameter.</p>
+<p>This project was to analyze mice lung vasculature labeled with gold nanoparticles. 3D tomography was acquired from Zeiss Xradia. I used Amira to segment targeted regions by combining a series of background subtraction, edge detection, and manual labeling. Filament analysis was then applied by using built-in auto-skeletonization to extract the backbone of lung vasculature and its diameter.
+<figure>
+    <img src="/posts/projects/lung_vasculature.png" width="250"/> 
+</figure>
+</p>
 <hr>
 <h2 id="embryonic-brain-reconstruction">Embryonic Brain Reconstruction</h2>
 <p>GitHub: <a href="https://github.com/eufmike-archive-wucci/matlab_batch_testing">Embryonic Brain Reconstruction</a><br>
 Features: MATLAB, Image Processing Toolbox</p>
 <p>This project was to contour the brain region on embryonic slide scans acquired from Zeiss Axio Scan.Z1. The sample was stained with four different nucleus and epithelial markers, which can be used for segmentation. The images were then exported to MBF Brain Maker for image registration. I used Imaris for 3D reconstruction.</p>
+<figure>
+    <img src="/posts/projects/embryonic_brain.jpg"/> 
+</figure>
+
 
             </div>
         </article>

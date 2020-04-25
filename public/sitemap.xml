@@ -1,1 +1,57 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><sitemap><loc>/en/sitemap.xml</loc><lastmod>2020-04-19T05:13:25-05:00</lastmod></sitemap><sitemap><loc>/fr/sitemap.xml</loc></sitemap></sitemapindex>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-04-19T05:13:25-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/publications/</loc>
+    <lastmod>2020-04-19T05:13:25-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/projects/</loc>
+    <lastmod>2020-04-19T05:13:10-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/projects_backup/</loc>
+    <lastmod>2020-04-19T05:13:10-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/</loc>
+    <lastmod>2020-04-19T05:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/ktest_demo_02_ktest/</loc>
+    <lastmod>2020-04-19T05:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/ktest_demo_01_simulator/</loc>
+    <lastmod>2020-04-18T05:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/point_pattern_analysis/</loc>
+    <lastmod>2019-04-20T14:44:08-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/about/</loc>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+  </url>
+  
+</urlset>

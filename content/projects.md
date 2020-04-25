@@ -18,7 +18,6 @@ GitHub: [STORM Imaging Analysis](https://github.com/eufmike/storm_image_processi
 Features: Python, R, MATLAB, Numpy, Scipy, ImageJ/Fiji
 
 This project was a collaboration aiming to analyze the nanoclusters of membrane proteins and the interaction between membrane proteins and lipid rafts. The function combined multiple platforms and packages including Python, R (spatstat), MATLAB, and ImageJ/Fiji(Thunderstorm) to employ Ripley's K function, Local-K, density map, and Coordinate-based colocalization. 
-
 Detail of point pattern analysis (Ripley's K family) was described in the following posts.
 * [Point Pattern Analysis](/content/posts/point_pattern_analysis.md)
 * [Ripley's K Demo: 01 Point Process Simulation](/content/posts/Ktest_demo_01_simulator.md)

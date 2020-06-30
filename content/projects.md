@@ -36,7 +36,7 @@ This project was to analyze mice lung vasculature labeled with gold nanoparticle
 
 ## Embryonic Brain Reconstruction
 
-GitHub: [Embryonic Brain Reconstruction](https://github.com/eufmike-archive-wucci/matlab_batch_testing)\
+GitHub: [Embryonic Brain Reconstruction](https://github.com/eufmike-archive-wucci/matlab_mast_embryonic_brain)\
 Features: MATLAB, Image Processing Toolbox
 
 This project was to contour the brain region on embryonic slide scans acquired from Zeiss Axio Scan.Z1. The sample was stained with four different nucleus and epithelial markers, which can be used for segmentation. The images were then exported to MBF Brain Maker for image registration. I used Imaris for 3D reconstruction.  

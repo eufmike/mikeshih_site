@@ -7,7 +7,7 @@ PygmentsCodeFences = true
 PygmentsStyle = "monokai"
 
 googleAnalytics = "UA-163877741-1"
-disqusShortname = "mikecshih"
+disqusShortname = "michaelcshih"
 
 [params]
   dateform        = "Jan 2, 2006"
@@ -19,7 +19,7 @@ disqusShortname = "mikecshih"
   disableReadOtherPosts = false
 
   # Metadata mostly used in document's head
-  description = "Mike Shih's website"
+  description = "Michael Shih's website"
   keywords = "homepage, blog"
   images = [""]
 

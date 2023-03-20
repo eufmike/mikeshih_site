@@ -1,5 +1,5 @@
 baseurl = "/"
-title   = "Mike C.C. Shih"
+title   = "Michael C.C. Shih"
 languageCode = "en-us"
 theme = "hello-friend-ng"
 
@@ -27,9 +27,8 @@ disqusShortname = "mikecshih"
   contentTypeName = "posts"
 
   # Default theme "light" or "dark"
-  defaultTheme = "light"
+  defaultTheme = "dark"
 
-  # Default theme "light" or "dark"
   themeColor = "#252627"
 
   # Colors for favicons
@@ -38,7 +37,7 @@ disqusShortname = "mikecshih"
     msapplication = "#252627"
   
   [params.logo]
-    logoText = "Mike C.C. Shih"
+    logoText = "Michael C.C. Shih"
     logoHomeLink = "/"
 
   [[params.social]]
@@ -55,7 +54,7 @@ disqusShortname = "mikecshih"
 
 [languages]
   [languages.en]
-    title = "Mike C.C. Shih"
+    title = "Michael C.C. Shih"
     weight    = 1
     copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
 

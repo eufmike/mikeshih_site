@@ -1,5 +1,5 @@
-# Mike Shih's Personal Website
-This [Mike Shih's website](https://www.mikeshih.com/) is based on [Hugo](https://gohugo.io/). The theme was modified from [hello-friend-ng](https://github.com/rhazdon/hugo-theme-hello-friend-ng). 
+# Michael Shih's Personal Website
+This [Michael Shih's website](https://www.mikeshih.com/) is based on [Hugo](https://gohugo.io/). The theme was modified from [hello-friend-ng](https://github.com/rhazdon/hugo-theme-hello-friend-ng). 
 
 ## Built With
 * [Hugo](https://gohugo.io/)

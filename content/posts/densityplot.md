@@ -1,8 +1,10 @@
 ---
 title: "Density Plot"
 date: 2020-04-15
-draft: true
+draft: false
 ---
+
+* Here are some simple way to create density plot that I found useful in visulizing data generated from STORM lipid raft study. 
 
 ```python
 # libraries
@@ -21,22 +23,11 @@ plt.ylim(-1, 1)
 plt.show()
 
 ```
-
-
 ![png](/posts/densityplot/output_0_0.png)
 
-
-
-```python
-import time
-
-```
-
+- Evaluate a gaussian kde on a regular grid of nbins x nbins over data extents
 
 ```python
-# Evaluate a gaussian kde on a regular grid of nbins x nbins over data extents
-
-
 nbins=1000
 k = scipy.stats.gaussian_kde([x,y])
 xi, yi = np.mgrid[-1:1:nbins*1j, -1:1:nbins*1j]
@@ -44,11 +35,8 @@ print(np.vstack([xi.flatten(), yi.flatten()]))
 xi1 = xi.flatten()
 yi1 = yi.flatten()
 
-start = time.time()
 zi = k(np.vstack([xi1, yi1]))
-end = time.time()
 print(zi)
-
 print(end-start)
 ```
 
@@ -70,10 +58,7 @@ plt.show()
 
 ```
 
-
 ![png](/posts/densityplot/output_3_0.png)
-
-
 
 ```python
 space = 1000
@@ -92,16 +77,9 @@ plt.pcolormesh(Xi, Yi, Zi.reshape(Xi.shape), cmap=plt.cm.plasma)
 plt.show()
 
 ```
-
     [5.62096536e-32 1.15379874e-31 2.35952085e-31 ... 1.20896089e-37
      5.84542861e-38 2.81593802e-38]
-
-
-
 ![png](/posts/densityplot/output_4_1.png)
-
-
-
 ```python
 import seaborn as sns
 plot = sns.kdeplot(x, y, shade=True)
@@ -110,19 +88,3 @@ plot.xlim(-1, 1)
 plot.ylim(-1, 1)
 plot.show()
 ```
-
-
-    ---------------------------------------------------------------------------
-
-    ModuleNotFoundError                       Traceback (most recent call last)
-
-    <ipython-input-11-f636d5d6d84c> in <module>
-    ----> 1 import seaborn as sns
-          2 plot = sns.kdeplot(x, y, shade=True)
-          3 plot.figure(figsize=(10,10))
-          4 plot.xlim(-1, 1)
-          5 plot.ylim(-1, 1)
-
-
-    ModuleNotFoundError: No module named 'seaborn'
-
